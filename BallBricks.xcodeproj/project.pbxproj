@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA9CE34D1B95E195008F7ADC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9CE34C1B95E195008F7ADC /* main.m */; };
+		AA9CE3501B95E195008F7ADC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9CE34F1B95E195008F7ADC /* AppDelegate.m */; };
+		AA9CE3531B95E195008F7ADC /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9CE3521B95E195008F7ADC /* GameScene.m */; };
+		AA9CE3551B95E195008F7ADC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = AA9CE3541B95E195008F7ADC /* GameScene.sks */; };
+		AA9CE3581B95E195008F7ADC /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9CE3571B95E195008F7ADC /* GameViewController.m */; };
+		AA9CE35B1B95E195008F7ADC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA9CE3591B95E195008F7ADC /* Main.storyboard */; };
+		AA9CE35D1B95E195008F7ADC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9CE35C1B95E195008F7ADC /* Images.xcassets */; };
+		AA9CE3601B95E195008F7ADC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9CE35E1B95E195008F7ADC /* LaunchScreen.xib */; };
+		AA9CE36C1B95E195008F7ADC /* BallBricksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9CE36B1B95E195008F7ADC /* BallBricksTests.m */; };
+		AA9CE3761B95E1CB008F7ADC /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA9CE3751B95E1CB008F7ADC /* Entitlements.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA9CE3661B95E195008F7ADC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA9CE33F1B95E195008F7ADC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA9CE3461B95E195008F7ADC;
+			remoteInfo = BallBricks;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA9CE3471B95E195008F7ADC /* BallBricks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallBricks.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9CE34B1B95E195008F7ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA9CE34C1B95E195008F7ADC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AA9CE34E1B95E195008F7ADC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AA9CE34F1B95E195008F7ADC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AA9CE3511B95E195008F7ADC /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		AA9CE3521B95E195008F7ADC /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		AA9CE3541B95E195008F7ADC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		AA9CE3561B95E195008F7ADC /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		AA9CE3571B95E195008F7ADC /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		AA9CE35A1B95E195008F7ADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AA9CE35C1B95E195008F7ADC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AA9CE35F1B95E195008F7ADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		AA9CE3651B95E195008F7ADC /* BallBricksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BallBricksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA9CE36A1B95E195008F7ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA9CE36B1B95E195008F7ADC /* BallBricksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BallBricksTests.m; sourceTree = "<group>"; };
+		AA9CE3751B95E1CB008F7ADC /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA9CE3441B95E195008F7ADC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9CE3621B95E195008F7ADC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA9CE33E1B95E195008F7ADC = {
+			isa = PBXGroup;
+			children = (
+				AA9CE3491B95E195008F7ADC /* BallBricks */,
+				AA9CE3681B95E195008F7ADC /* BallBricksTests */,
+				AA9CE3481B95E195008F7ADC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA9CE3481B95E195008F7ADC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA9CE3471B95E195008F7ADC /* BallBricks.app */,
+				AA9CE3651B95E195008F7ADC /* BallBricksTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA9CE3491B95E195008F7ADC /* BallBricks */ = {
+			isa = PBXGroup;
+			children = (
+				AA9CE34E1B95E195008F7ADC /* AppDelegate.h */,
+				AA9CE34F1B95E195008F7ADC /* AppDelegate.m */,
+				AA9CE3511B95E195008F7ADC /* GameScene.h */,
+				AA9CE3521B95E195008F7ADC /* GameScene.m */,
+				AA9CE3541B95E195008F7ADC /* GameScene.sks */,
+				AA9CE3561B95E195008F7ADC /* GameViewController.h */,
+				AA9CE3571B95E195008F7ADC /* GameViewController.m */,
+				AA9CE3591B95E195008F7ADC /* Main.storyboard */,
+				AA9CE35C1B95E195008F7ADC /* Images.xcassets */,
+				AA9CE35E1B95E195008F7ADC /* LaunchScreen.xib */,
+				AA9CE34A1B95E195008F7ADC /* Supporting Files */,
+			);
+			path = BallBricks;
+			sourceTree = "<group>";
+		};
+		AA9CE34A1B95E195008F7ADC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA9CE34B1B95E195008F7ADC /* Info.plist */,
+				AA9CE3751B95E1CB008F7ADC /* Entitlements.plist */,
+				AA9CE34C1B95E195008F7ADC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA9CE3681B95E195008F7ADC /* BallBricksTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA9CE36B1B95E195008F7ADC /* BallBricksTests.m */,
+				AA9CE3691B95E195008F7ADC /* Supporting Files */,
+			);
+			path = BallBricksTests;
+			sourceTree = "<group>";
+		};
+		AA9CE3691B95E195008F7ADC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AA9CE36A1B95E195008F7ADC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA9CE3461B95E195008F7ADC /* BallBricks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA9CE36F1B95E195008F7ADC /* Build configuration list for PBXNativeTarget "BallBricks" */;
+			buildPhases = (
+				AA9CE3431B95E195008F7ADC /* Sources */,
+				AA9CE3441B95E195008F7ADC /* Frameworks */,
+				AA9CE3451B95E195008F7ADC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BallBricks;
+			productName = BallBricks;
+			productReference = AA9CE3471B95E195008F7ADC /* BallBricks.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA9CE3641B95E195008F7ADC /* BallBricksTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA9CE3721B95E195008F7ADC /* Build configuration list for PBXNativeTarget "BallBricksTests" */;
+			buildPhases = (
+				AA9CE3611B95E195008F7ADC /* Sources */,
+				AA9CE3621B95E195008F7ADC /* Frameworks */,
+				AA9CE3631B95E195008F7ADC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA9CE3671B95E195008F7ADC /* PBXTargetDependency */,
+			);
+			name = BallBricksTests;
+			productName = BallBricksTests;
+			productReference = AA9CE3651B95E195008F7ADC /* BallBricksTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA9CE33F1B95E195008F7ADC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Fenkins;
+				TargetAttributes = {
+					AA9CE3461B95E195008F7ADC = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					AA9CE3641B95E195008F7ADC = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = AA9CE3461B95E195008F7ADC;
+					};
+				};
+			};
+			buildConfigurationList = AA9CE3421B95E195008F7ADC /* Build configuration list for PBXProject "BallBricks" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA9CE33E1B95E195008F7ADC;
+			productRefGroup = AA9CE3481B95E195008F7ADC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA9CE3461B95E195008F7ADC /* BallBricks */,
+				AA9CE3641B95E195008F7ADC /* BallBricksTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA9CE3451B95E195008F7ADC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9CE3601B95E195008F7ADC /* LaunchScreen.xib in Resources */,
+				AA9CE35D1B95E195008F7ADC /* Images.xcassets in Resources */,
+				AA9CE3551B95E195008F7ADC /* GameScene.sks in Resources */,
+				AA9CE3761B95E1CB008F7ADC /* Entitlements.plist in Resources */,
+				AA9CE35B1B95E195008F7ADC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9CE3631B95E195008F7ADC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA9CE3431B95E195008F7ADC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9CE3581B95E195008F7ADC /* GameViewController.m in Sources */,
+				AA9CE3501B95E195008F7ADC /* AppDelegate.m in Sources */,
+				AA9CE3531B95E195008F7ADC /* GameScene.m in Sources */,
+				AA9CE34D1B95E195008F7ADC /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9CE3611B95E195008F7ADC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA9CE36C1B95E195008F7ADC /* BallBricksTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA9CE3671B95E195008F7ADC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA9CE3461B95E195008F7ADC /* BallBricks */;
+			targetProxy = AA9CE3661B95E195008F7ADC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA9CE3591B95E195008F7ADC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA9CE35A1B95E195008F7ADC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AA9CE35E1B95E195008F7ADC /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA9CE35F1B95E195008F7ADC /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA9CE36D1B95E195008F7ADC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = BallBricks/Entitlements.plist;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AA9CE36E1B95E195008F7ADC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = BallBricks/Entitlements.plist;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA9CE3701B95E195008F7ADC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BallBricks/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		AA9CE3711B95E195008F7ADC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BallBricks/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		AA9CE3731B95E195008F7ADC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BallBricksTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BallBricks.app/BallBricks";
+			};
+			name = Debug;
+		};
+		AA9CE3741B95E195008F7ADC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BallBricksTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BallBricks.app/BallBricks";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA9CE3421B95E195008F7ADC /* Build configuration list for PBXProject "BallBricks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA9CE36D1B95E195008F7ADC /* Debug */,
+				AA9CE36E1B95E195008F7ADC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA9CE36F1B95E195008F7ADC /* Build configuration list for PBXNativeTarget "BallBricks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA9CE3701B95E195008F7ADC /* Debug */,
+				AA9CE3711B95E195008F7ADC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AA9CE3721B95E195008F7ADC /* Build configuration list for PBXNativeTarget "BallBricksTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA9CE3731B95E195008F7ADC /* Debug */,
+				AA9CE3741B95E195008F7ADC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA9CE33F1B95E195008F7ADC /* Project object */;
+}
