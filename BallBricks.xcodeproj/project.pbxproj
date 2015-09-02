@@ -17,6 +17,16 @@
 		AA9CE3601B95E195008F7ADC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9CE35E1B95E195008F7ADC /* LaunchScreen.xib */; };
 		AA9CE36C1B95E195008F7ADC /* BallBricksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9CE36B1B95E195008F7ADC /* BallBricksTests.m */; };
 		AA9CE3761B95E1CB008F7ADC /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA9CE3751B95E1CB008F7ADC /* Entitlements.plist */; };
+		AAA025BF1B975C7C00EC8CC4 /* blueBall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025B51B975C7C00EC8CC4 /* blueBall@2x.png */; };
+		AAA025C01B975C7C00EC8CC4 /* blueBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025B61B975C7C00EC8CC4 /* blueBrick@2x.png */; };
+		AAA025C11B975C7C00EC8CC4 /* greenBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025B71B975C7C00EC8CC4 /* greenBrick@2x.png */; };
+		AAA025C21B975C7C00EC8CC4 /* greyBall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025B81B975C7C00EC8CC4 /* greyBall@2x.png */; };
+		AAA025C31B975C7C00EC8CC4 /* greyBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025B91B975C7C00EC8CC4 /* greyBrick@2x.png */; };
+		AAA025C41B975C7C00EC8CC4 /* paddleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025BA1B975C7C00EC8CC4 /* paddleBlue@2x.png */; };
+		AAA025C51B975C7C00EC8CC4 /* paddleRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025BB1B975C7C00EC8CC4 /* paddleRed@2x.png */; };
+		AAA025C61B975C7C00EC8CC4 /* purpleBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025BC1B975C7C00EC8CC4 /* purpleBrick@2x.png */; };
+		AAA025C71B975C7C00EC8CC4 /* redBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025BD1B975C7C00EC8CC4 /* redBrick@2x.png */; };
+		AAA025C81B975C7C00EC8CC4 /* yellowBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025BE1B975C7C00EC8CC4 /* yellowBrick@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +57,16 @@
 		AA9CE36A1B95E195008F7ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9CE36B1B95E195008F7ADC /* BallBricksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BallBricksTests.m; sourceTree = "<group>"; };
 		AA9CE3751B95E1CB008F7ADC /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		AAA025B51B975C7C00EC8CC4 /* blueBall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueBall@2x.png"; sourceTree = "<group>"; };
+		AAA025B61B975C7C00EC8CC4 /* blueBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueBrick@2x.png"; sourceTree = "<group>"; };
+		AAA025B71B975C7C00EC8CC4 /* greenBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenBrick@2x.png"; sourceTree = "<group>"; };
+		AAA025B81B975C7C00EC8CC4 /* greyBall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyBall@2x.png"; sourceTree = "<group>"; };
+		AAA025B91B975C7C00EC8CC4 /* greyBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyBrick@2x.png"; sourceTree = "<group>"; };
+		AAA025BA1B975C7C00EC8CC4 /* paddleBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paddleBlue@2x.png"; sourceTree = "<group>"; };
+		AAA025BB1B975C7C00EC8CC4 /* paddleRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paddleRed@2x.png"; sourceTree = "<group>"; };
+		AAA025BC1B975C7C00EC8CC4 /* purpleBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purpleBrick@2x.png"; sourceTree = "<group>"; };
+		AAA025BD1B975C7C00EC8CC4 /* redBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redBrick@2x.png"; sourceTree = "<group>"; };
+		AAA025BE1B975C7C00EC8CC4 /* yellowBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowBrick@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +108,7 @@
 		AA9CE3491B95E195008F7ADC /* BallBricks */ = {
 			isa = PBXGroup;
 			children = (
+				AAA025B41B975C7C00EC8CC4 /* GameImages */,
 				AA9CE34E1B95E195008F7ADC /* AppDelegate.h */,
 				AA9CE34F1B95E195008F7ADC /* AppDelegate.m */,
 				AA9CE3511B95E195008F7ADC /* GameScene.h */,
@@ -128,6 +149,23 @@
 				AA9CE36A1B95E195008F7ADC /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AAA025B41B975C7C00EC8CC4 /* GameImages */ = {
+			isa = PBXGroup;
+			children = (
+				AAA025B51B975C7C00EC8CC4 /* blueBall@2x.png */,
+				AAA025B61B975C7C00EC8CC4 /* blueBrick@2x.png */,
+				AAA025B71B975C7C00EC8CC4 /* greenBrick@2x.png */,
+				AAA025B81B975C7C00EC8CC4 /* greyBall@2x.png */,
+				AAA025B91B975C7C00EC8CC4 /* greyBrick@2x.png */,
+				AAA025BA1B975C7C00EC8CC4 /* paddleBlue@2x.png */,
+				AAA025BB1B975C7C00EC8CC4 /* paddleRed@2x.png */,
+				AAA025BC1B975C7C00EC8CC4 /* purpleBrick@2x.png */,
+				AAA025BD1B975C7C00EC8CC4 /* redBrick@2x.png */,
+				AAA025BE1B975C7C00EC8CC4 /* yellowBrick@2x.png */,
+			);
+			path = GameImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,9 +248,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA025C41B975C7C00EC8CC4 /* paddleBlue@2x.png in Resources */,
+				AAA025C21B975C7C00EC8CC4 /* greyBall@2x.png in Resources */,
+				AAA025C51B975C7C00EC8CC4 /* paddleRed@2x.png in Resources */,
 				AA9CE3601B95E195008F7ADC /* LaunchScreen.xib in Resources */,
 				AA9CE35D1B95E195008F7ADC /* Images.xcassets in Resources */,
+				AAA025C11B975C7C00EC8CC4 /* greenBrick@2x.png in Resources */,
+				AAA025C71B975C7C00EC8CC4 /* redBrick@2x.png in Resources */,
 				AA9CE3551B95E195008F7ADC /* GameScene.sks in Resources */,
+				AAA025C81B975C7C00EC8CC4 /* yellowBrick@2x.png in Resources */,
+				AAA025C61B975C7C00EC8CC4 /* purpleBrick@2x.png in Resources */,
+				AAA025C31B975C7C00EC8CC4 /* greyBrick@2x.png in Resources */,
+				AAA025BF1B975C7C00EC8CC4 /* blueBall@2x.png in Resources */,
+				AAA025C01B975C7C00EC8CC4 /* blueBrick@2x.png in Resources */,
 				AA9CE3761B95E1CB008F7ADC /* Entitlements.plist in Resources */,
 				AA9CE35B1B95E195008F7ADC /* Main.storyboard in Resources */,
 			);
@@ -434,6 +482,7 @@
 				AA9CE3711B95E195008F7ADC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AA9CE3721B95E195008F7ADC /* Build configuration list for PBXNativeTarget "BallBricksTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +491,7 @@
 				AA9CE3741B95E195008F7ADC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
