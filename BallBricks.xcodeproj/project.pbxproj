@@ -17,16 +17,20 @@
 		AA9CE3601B95E195008F7ADC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA9CE35E1B95E195008F7ADC /* LaunchScreen.xib */; };
 		AA9CE36C1B95E195008F7ADC /* BallBricksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9CE36B1B95E195008F7ADC /* BallBricksTests.m */; };
 		AA9CE3761B95E1CB008F7ADC /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA9CE3751B95E1CB008F7ADC /* Entitlements.plist */; };
-		AAA025BF1B975C7C00EC8CC4 /* blueBall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025B51B975C7C00EC8CC4 /* blueBall@2x.png */; };
-		AAA025C01B975C7C00EC8CC4 /* blueBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025B61B975C7C00EC8CC4 /* blueBrick@2x.png */; };
-		AAA025C11B975C7C00EC8CC4 /* greenBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025B71B975C7C00EC8CC4 /* greenBrick@2x.png */; };
-		AAA025C21B975C7C00EC8CC4 /* greyBall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025B81B975C7C00EC8CC4 /* greyBall@2x.png */; };
-		AAA025C31B975C7C00EC8CC4 /* greyBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025B91B975C7C00EC8CC4 /* greyBrick@2x.png */; };
-		AAA025C41B975C7C00EC8CC4 /* paddleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025BA1B975C7C00EC8CC4 /* paddleBlue@2x.png */; };
-		AAA025C51B975C7C00EC8CC4 /* paddleRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025BB1B975C7C00EC8CC4 /* paddleRed@2x.png */; };
-		AAA025C61B975C7C00EC8CC4 /* purpleBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025BC1B975C7C00EC8CC4 /* purpleBrick@2x.png */; };
-		AAA025C71B975C7C00EC8CC4 /* redBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025BD1B975C7C00EC8CC4 /* redBrick@2x.png */; };
-		AAA025C81B975C7C00EC8CC4 /* yellowBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA025BE1B975C7C00EC8CC4 /* yellowBrick@2x.png */; };
+		AAA88CB61B9761E8008915BB /* blueBall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CA81B9761E8008915BB /* blueBall@2x.png */; };
+		AAA88CB71B9761E8008915BB /* blueBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CA91B9761E8008915BB /* blueBrick@2x.png */; };
+		AAA88CB81B9761E8008915BB /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CAA1B9761E8008915BB /* button@2x.png */; };
+		AAA88CB91B9761E8008915BB /* buttonEdged@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CAB1B9761E8008915BB /* buttonEdged@2x.png */; };
+		AAA88CBA1B9761E8008915BB /* emptyHeart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CAC1B9761E8008915BB /* emptyHeart@2x.png */; };
+		AAA88CBB1B9761E8008915BB /* fullHeart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CAD1B9761E8008915BB /* fullHeart@2x.png */; };
+		AAA88CBC1B9761E8008915BB /* greenBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CAE1B9761E8008915BB /* greenBrick@2x.png */; };
+		AAA88CBD1B9761E8008915BB /* greyBall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CAF1B9761E8008915BB /* greyBall@2x.png */; };
+		AAA88CBE1B9761E8008915BB /* greyBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CB01B9761E8008915BB /* greyBrick@2x.png */; };
+		AAA88CBF1B9761E8008915BB /* paddleBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CB11B9761E8008915BB /* paddleBlue@2x.png */; };
+		AAA88CC01B9761E8008915BB /* paddleRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CB21B9761E8008915BB /* paddleRed@2x.png */; };
+		AAA88CC11B9761E8008915BB /* purpleBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CB31B9761E8008915BB /* purpleBrick@2x.png */; };
+		AAA88CC21B9761E8008915BB /* redBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CB41B9761E8008915BB /* redBrick@2x.png */; };
+		AAA88CC31B9761E8008915BB /* yellowBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CB51B9761E8008915BB /* yellowBrick@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,16 +61,20 @@
 		AA9CE36A1B95E195008F7ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9CE36B1B95E195008F7ADC /* BallBricksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BallBricksTests.m; sourceTree = "<group>"; };
 		AA9CE3751B95E1CB008F7ADC /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		AAA025B51B975C7C00EC8CC4 /* blueBall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueBall@2x.png"; sourceTree = "<group>"; };
-		AAA025B61B975C7C00EC8CC4 /* blueBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueBrick@2x.png"; sourceTree = "<group>"; };
-		AAA025B71B975C7C00EC8CC4 /* greenBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenBrick@2x.png"; sourceTree = "<group>"; };
-		AAA025B81B975C7C00EC8CC4 /* greyBall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyBall@2x.png"; sourceTree = "<group>"; };
-		AAA025B91B975C7C00EC8CC4 /* greyBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyBrick@2x.png"; sourceTree = "<group>"; };
-		AAA025BA1B975C7C00EC8CC4 /* paddleBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paddleBlue@2x.png"; sourceTree = "<group>"; };
-		AAA025BB1B975C7C00EC8CC4 /* paddleRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paddleRed@2x.png"; sourceTree = "<group>"; };
-		AAA025BC1B975C7C00EC8CC4 /* purpleBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purpleBrick@2x.png"; sourceTree = "<group>"; };
-		AAA025BD1B975C7C00EC8CC4 /* redBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redBrick@2x.png"; sourceTree = "<group>"; };
-		AAA025BE1B975C7C00EC8CC4 /* yellowBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowBrick@2x.png"; sourceTree = "<group>"; };
+		AAA88CA81B9761E8008915BB /* blueBall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueBall@2x.png"; sourceTree = "<group>"; };
+		AAA88CA91B9761E8008915BB /* blueBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueBrick@2x.png"; sourceTree = "<group>"; };
+		AAA88CAA1B9761E8008915BB /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
+		AAA88CAB1B9761E8008915BB /* buttonEdged@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonEdged@2x.png"; sourceTree = "<group>"; };
+		AAA88CAC1B9761E8008915BB /* emptyHeart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emptyHeart@2x.png"; sourceTree = "<group>"; };
+		AAA88CAD1B9761E8008915BB /* fullHeart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fullHeart@2x.png"; sourceTree = "<group>"; };
+		AAA88CAE1B9761E8008915BB /* greenBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenBrick@2x.png"; sourceTree = "<group>"; };
+		AAA88CAF1B9761E8008915BB /* greyBall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyBall@2x.png"; sourceTree = "<group>"; };
+		AAA88CB01B9761E8008915BB /* greyBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greyBrick@2x.png"; sourceTree = "<group>"; };
+		AAA88CB11B9761E8008915BB /* paddleBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paddleBlue@2x.png"; sourceTree = "<group>"; };
+		AAA88CB21B9761E8008915BB /* paddleRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paddleRed@2x.png"; sourceTree = "<group>"; };
+		AAA88CB31B9761E8008915BB /* purpleBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purpleBrick@2x.png"; sourceTree = "<group>"; };
+		AAA88CB41B9761E8008915BB /* redBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redBrick@2x.png"; sourceTree = "<group>"; };
+		AAA88CB51B9761E8008915BB /* yellowBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowBrick@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +116,7 @@
 		AA9CE3491B95E195008F7ADC /* BallBricks */ = {
 			isa = PBXGroup;
 			children = (
-				AAA025B41B975C7C00EC8CC4 /* GameImages */,
+				AAA88CA71B9761E8008915BB /* GameImages */,
 				AA9CE34E1B95E195008F7ADC /* AppDelegate.h */,
 				AA9CE34F1B95E195008F7ADC /* AppDelegate.m */,
 				AA9CE3511B95E195008F7ADC /* GameScene.h */,
@@ -151,19 +159,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AAA025B41B975C7C00EC8CC4 /* GameImages */ = {
+		AAA88CA71B9761E8008915BB /* GameImages */ = {
 			isa = PBXGroup;
 			children = (
-				AAA025B51B975C7C00EC8CC4 /* blueBall@2x.png */,
-				AAA025B61B975C7C00EC8CC4 /* blueBrick@2x.png */,
-				AAA025B71B975C7C00EC8CC4 /* greenBrick@2x.png */,
-				AAA025B81B975C7C00EC8CC4 /* greyBall@2x.png */,
-				AAA025B91B975C7C00EC8CC4 /* greyBrick@2x.png */,
-				AAA025BA1B975C7C00EC8CC4 /* paddleBlue@2x.png */,
-				AAA025BB1B975C7C00EC8CC4 /* paddleRed@2x.png */,
-				AAA025BC1B975C7C00EC8CC4 /* purpleBrick@2x.png */,
-				AAA025BD1B975C7C00EC8CC4 /* redBrick@2x.png */,
-				AAA025BE1B975C7C00EC8CC4 /* yellowBrick@2x.png */,
+				AAA88CA81B9761E8008915BB /* blueBall@2x.png */,
+				AAA88CA91B9761E8008915BB /* blueBrick@2x.png */,
+				AAA88CAA1B9761E8008915BB /* button@2x.png */,
+				AAA88CAB1B9761E8008915BB /* buttonEdged@2x.png */,
+				AAA88CAC1B9761E8008915BB /* emptyHeart@2x.png */,
+				AAA88CAD1B9761E8008915BB /* fullHeart@2x.png */,
+				AAA88CAE1B9761E8008915BB /* greenBrick@2x.png */,
+				AAA88CAF1B9761E8008915BB /* greyBall@2x.png */,
+				AAA88CB01B9761E8008915BB /* greyBrick@2x.png */,
+				AAA88CB11B9761E8008915BB /* paddleBlue@2x.png */,
+				AAA88CB21B9761E8008915BB /* paddleRed@2x.png */,
+				AAA88CB31B9761E8008915BB /* purpleBrick@2x.png */,
+				AAA88CB41B9761E8008915BB /* redBrick@2x.png */,
+				AAA88CB51B9761E8008915BB /* yellowBrick@2x.png */,
 			);
 			path = GameImages;
 			sourceTree = "<group>";
@@ -248,21 +260,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAA025C41B975C7C00EC8CC4 /* paddleBlue@2x.png in Resources */,
-				AAA025C21B975C7C00EC8CC4 /* greyBall@2x.png in Resources */,
-				AAA025C51B975C7C00EC8CC4 /* paddleRed@2x.png in Resources */,
 				AA9CE3601B95E195008F7ADC /* LaunchScreen.xib in Resources */,
+				AAA88CBA1B9761E8008915BB /* emptyHeart@2x.png in Resources */,
+				AAA88CC21B9761E8008915BB /* redBrick@2x.png in Resources */,
+				AAA88CC01B9761E8008915BB /* paddleRed@2x.png in Resources */,
+				AAA88CBF1B9761E8008915BB /* paddleBlue@2x.png in Resources */,
+				AAA88CBC1B9761E8008915BB /* greenBrick@2x.png in Resources */,
 				AA9CE35D1B95E195008F7ADC /* Images.xcassets in Resources */,
-				AAA025C11B975C7C00EC8CC4 /* greenBrick@2x.png in Resources */,
-				AAA025C71B975C7C00EC8CC4 /* redBrick@2x.png in Resources */,
 				AA9CE3551B95E195008F7ADC /* GameScene.sks in Resources */,
-				AAA025C81B975C7C00EC8CC4 /* yellowBrick@2x.png in Resources */,
-				AAA025C61B975C7C00EC8CC4 /* purpleBrick@2x.png in Resources */,
-				AAA025C31B975C7C00EC8CC4 /* greyBrick@2x.png in Resources */,
-				AAA025BF1B975C7C00EC8CC4 /* blueBall@2x.png in Resources */,
-				AAA025C01B975C7C00EC8CC4 /* blueBrick@2x.png in Resources */,
+				AAA88CB61B9761E8008915BB /* blueBall@2x.png in Resources */,
+				AAA88CB71B9761E8008915BB /* blueBrick@2x.png in Resources */,
+				AAA88CB91B9761E8008915BB /* buttonEdged@2x.png in Resources */,
 				AA9CE3761B95E1CB008F7ADC /* Entitlements.plist in Resources */,
+				AAA88CC31B9761E8008915BB /* yellowBrick@2x.png in Resources */,
+				AAA88CB81B9761E8008915BB /* button@2x.png in Resources */,
+				AAA88CBB1B9761E8008915BB /* fullHeart@2x.png in Resources */,
+				AAA88CC11B9761E8008915BB /* purpleBrick@2x.png in Resources */,
+				AAA88CBD1B9761E8008915BB /* greyBall@2x.png in Resources */,
 				AA9CE35B1B95E195008F7ADC /* Main.storyboard in Resources */,
+				AAA88CBE1B9761E8008915BB /* greyBrick@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
