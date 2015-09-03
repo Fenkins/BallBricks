@@ -8,12 +8,30 @@
 
 #import "GameScene.h"
 
-@implementation GameScene
+@implementation GameScene {
+    SKSpriteNode *topBarLayer;
+    SKSpriteNode *paddleBlue;
+}
 
 -(void)didMoveToView:(SKView *)view {
-    /* Setup your scene here */
     self.backgroundColor = [SKColor whiteColor];
+    [self addDefaultSceneElements];
+}
 
+-(void)addDefaultSceneElements {
+    topBarLayer = [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(self.size.width, 30)];
+    topBarLayer.position = CGPointMake(self.size.width/2, self.size.height-topBarLayer.size.height/2);
+    [self addChild:topBarLayer];
+    
+    paddleBlue = [SKSpriteNode spriteNodeWithImageNamed:@"paddleBlue"];
+    paddleBlue.position = CGPointMake(self.size.width/2, self.size.height/10 + paddleBlue.size.height/2);
+    [self addChild:paddleBlue];
+}
+-(void)addGameMenuElements {
+    
+}
+-(void)addBlocks {
+    
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
