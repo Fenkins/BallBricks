@@ -34,6 +34,21 @@
     
 }
 
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UITouch *touch in touches) {
+        // Moving paddle according to the touch moving
+        CGPoint touchLocation = [touch locationInNode:self];
+        if (touchLocation.x >= self.size.width - paddleBlue.size.width*1/3) {
+            paddleBlue.position = CGPointMake(self.size.width - paddleBlue.size.width*1/3, paddleBlue.position.y);
+        } else if (touchLocation.x <= paddleBlue.size.width*1/3) {
+            paddleBlue.position = CGPointMake(paddleBlue.size.width*1/3, paddleBlue.position.y);
+        } else {
+            paddleBlue.position = CGPointMake(touchLocation.x, paddleBlue.position.y);
+        }
+        // End of paddle moving section
+    }
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     
