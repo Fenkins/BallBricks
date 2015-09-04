@@ -80,6 +80,16 @@
 
 -(void)drawBlocksBasedOnArray {
     NSArray *blocksArray = [[NSArray alloc]initWithArray:[self generateBlocksArrayBasedOnLevel:_levelNumber]];
+
+    for (int columnIndex = 0; columnIndex < blocksArray.count; columnIndex++) {
+        NSArray *baColumn = [[NSArray alloc]initWithArray:blocksArray[columnIndex]];
+        for (int rowIndex = 0; rowIndex <= 3; rowIndex++) {
+            int blockCode = [baColumn[rowIndex]integerValue];
+            SKSpriteNode *blockSprite = [self blocksSwitch:blockCode];
+            blockSprite.position = CGPointMake(blockSprite.size.width, self.size.height-_topBarLayer.size.height-blockSprite.size.height);
+            [self addChild:blockSprite];
+        }
+    }
     
 }
 -(NSArray *)generateBlocksArrayBasedOnLevel:(int)levelNumber {
