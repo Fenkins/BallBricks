@@ -17,6 +17,11 @@
     int _levelNumber;
 }
 
+static const uint32_t kCCBallCategory       = 0x1 << 0;
+static const uint32_t kCCEdgeCategory       = 0x1 << 1;
+static const uint32_t kCCBrickBlockCategory = 0x1 << 2;
+static const uint32_t kCCPowerUpCategory    = 0x1 << 3;
+
 -(void)didMoveToView:(SKView *)view {
     self.backgroundColor = [SKColor whiteColor];
     [self addDefaultSceneElements];
@@ -24,6 +29,27 @@
 }
 
 -(void)addDefaultSceneElements {
+    self.physicsWorld.gravity =  CGVectorMake(0.0,0.0);
+    self.physicsWorld.contactDelegate = self;
+
+    SKNode *leftEdge = [SKNode alloc]init];
+    leftEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(0.0,self.size.height)];
+    leftEdge.position = CGPointZero;
+    leftEdge.physicsBody.categoryBitMask = kCCEdgeCategory;
+    [self addChild:leftEdge];
+
+    SKNode *rightEdge = [SKNode alloc]init];
+    rightEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(0.0,self.size.height)];
+    rightEdge.position = CGPointMake(self.size.width,0.0);
+    rightEdge.physicsBody.categoryBitMask = kCCEdgeCategory;
+    [self addChild:rightEdge];
+
+    SKNode *topEdge = [SKNode alloc]init];
+    topEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(self.size.width,0.0)];
+    topEdge.position = CGPointMake(0.0,self.size.height-_topBarLayer.size.height);
+    topEdge.physicsBody.categoryBitMask = kCCEdgeCategory;
+    [self addChild:topEdge];
+
     _topBarLayer = [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(self.size.width, 30)];
     _topBarLayer.position = CGPointMake(self.size.width/2, self.size.height-_topBarLayer.size.height/2);
     [self addChild:_topBarLayer];
