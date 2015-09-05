@@ -23,6 +23,7 @@ static const uint32_t kCCBallCategory       = 0x1 << 0;
 static const uint32_t kCCEdgeCategory       = 0x1 << 1;
 static const uint32_t kCCBrickBlockCategory = 0x1 << 2;
 static const uint32_t kCCPowerUpCategory    = 0x1 << 3;
+static const uint32_t kCCPaddleCategory     = 0x1 << 4;
 
 -(void)didMoveToView:(SKView *)view {
     self.backgroundColor = [SKColor whiteColor];
@@ -88,7 +89,7 @@ static const uint32_t kCCPowerUpCategory    = 0x1 << 3;
     _ball.physicsBody.friction = 0.0;
 
     _ball.physicsBody.categoryBitMask = kCCBallCategory;
-    _ball.physicsBody.collisionBitMask = kCCEdgeCategory | kCCBrickBlockCategory;
+    _ball.physicsBody.collisionBitMask = kCCEdgeCategory | kCCBrickBlockCategory | kCCPaddleCategory;
     _ball.physicsBody.contactTestBitMask = kCCBrickBlockCategory | kCCPowerUpCategory;
     [self addChild:_ball];
     
