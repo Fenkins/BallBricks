@@ -16,6 +16,7 @@
     SKLabelNode *_ball;
     int _levelNumber;
 }
+static const CGFloat BALL_INITIAL_SPEED     = 1000.0f;
 
 static const uint32_t kCCBallCategory       = 0x1 << 0;
 static const uint32_t kCCEdgeCategory       = 0x1 << 1;
@@ -76,7 +77,18 @@ static const uint32_t kCCPowerUpCategory    = 0x1 << 3;
     [_topBarLayer addChild:_heart];
 
     _ball = [SKSpriteNode spriteNodeWithImageNamed@"blueBall"];
+    _ball.name = @"Ball";
     _ball.position = _paddleBlue.position;
+    
+    _ball.physicsBody = [SKPhysicsBody bodyWithCirleOfRadius:6.0];
+    _ball.physicsBody.velocity = CGVectorMake(1.0*BALL_INITIAL_SPEED,0.0*BALL_INITIAL_SPEED);
+    _ball.physicsBody.restitution = 1.0;
+    _ball.physicsBody.linearDamping = 0.0;
+    _ball.physicsBody.friction = 0.0;
+
+    _ball.physicsBody.categoryBitMask = kCCBallCategory;
+    _ball.physicsBody.collisionBitMask = kCCEdgeCategory | kCCBrickBlockCategory;
+    _ball.physicsBody.contactTestBitMask = kCCBrickBlockCategory | kCCPowerUpCategory;
     [self addChild:_ball];
     
 }
