@@ -13,6 +13,7 @@
     SKSpriteNode *_paddleBlue;
     SKSpriteNode *_heart;
     SKLabelNode *_levelLabel;
+    SKLabelNode *_ball;
     int _levelNumber;
 }
 
@@ -47,6 +48,10 @@
     _heart.xScale = 0.6;
     _heart.yScale = 0.6;
     [_topBarLayer addChild:_heart];
+
+    _ball = [SKSpriteNode spriteNodeWithImageNamed@"blueBall"];
+    _ball.position = _paddleBlue.position;
+    [self addChild:_ball];
     
 }
 -(void)setDefaultNumbersAndBehaviour {
