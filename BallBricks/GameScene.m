@@ -14,7 +14,7 @@
     SKSpriteNode *_heart;
     SKSpriteNode *_ball;
     SKLabelNode *_levelLabel;
-
+    NSArray *livesArray;
     int _levelNumber;
 }
 static const CGFloat BALL_INITIAL_SPEED     = 400.0f;
@@ -58,6 +58,9 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     [self addChild:_topBarLayer];
     
     _paddleBlue = [SKSpriteNode spriteNodeWithImageNamed:@"paddleBlue"];
+    _paddleBlue.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(_paddleBlue.size.width,_paddleBlue.size.height)];
+    _paddleBlue.physicsBody.categoryBitMask = kCCPaddleCategory;
+    _paddleBlue.physicsBody.linearDamping = 0.0;
     _paddleBlue.position = CGPointMake(self.size.width/2, self.size.height/10 + _paddleBlue.size.height/2);
     [self addChild:_paddleBlue];
     
@@ -94,13 +97,23 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     [self addChild:_ball];
     
 }
--(void)setDefaultNumbersAndBehaviour {
+// -(void)setDefaultNumbersAndBehaviour {
     
-}
+// }
 -(void)addGameMenuElements {
     
 }
--(void)addBlocks {
+
+-(void)drawLiveBar:(NSArray*)lives {
+
+}
+
+-(NSArray* resultingLives)restoreAllLives {
+    fullArray = [[NSArray alloc]initWithObjects:@1,@,1,@1];
+    return fullArray;
+}
+
+-(NSArray* resultingLives)removeOneLive:(NSArray*)lives {
     
 }
 
