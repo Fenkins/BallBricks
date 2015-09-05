@@ -12,11 +12,12 @@
     SKSpriteNode *_topBarLayer;
     SKSpriteNode *_paddleBlue;
     SKSpriteNode *_heart;
+    SKSpriteNode *_ball;
     SKLabelNode *_levelLabel;
-    SKLabelNode *_ball;
+
     int _levelNumber;
 }
-static const CGFloat BALL_INITIAL_SPEED     = 1000.0f;
+static const CGFloat BALL_INITIAL_SPEED     = 400.0f;
 
 static const uint32_t kCCBallCategory       = 0x1 << 0;
 static const uint32_t kCCEdgeCategory       = 0x1 << 1;
@@ -33,19 +34,19 @@ static const uint32_t kCCPowerUpCategory    = 0x1 << 3;
     self.physicsWorld.gravity =  CGVectorMake(0.0,0.0);
     self.physicsWorld.contactDelegate = self;
 
-    SKNode *leftEdge = [SKNode alloc]init];
+    SKNode *leftEdge = [[SKNode alloc]init];
     leftEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(0.0,self.size.height)];
     leftEdge.position = CGPointZero;
     leftEdge.physicsBody.categoryBitMask = kCCEdgeCategory;
     [self addChild:leftEdge];
 
-    SKNode *rightEdge = [SKNode alloc]init];
+    SKNode *rightEdge = [[SKNode alloc]init];
     rightEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(0.0,self.size.height)];
     rightEdge.position = CGPointMake(self.size.width,0.0);
     rightEdge.physicsBody.categoryBitMask = kCCEdgeCategory;
     [self addChild:rightEdge];
 
-    SKNode *topEdge = [SKNode alloc]init];
+    SKNode *topEdge = [[SKNode alloc]init];
     topEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointZero toPoint:CGPointMake(self.size.width,0.0)];
     topEdge.position = CGPointMake(0.0,self.size.height-_topBarLayer.size.height);
     topEdge.physicsBody.categoryBitMask = kCCEdgeCategory;
@@ -76,12 +77,12 @@ static const uint32_t kCCPowerUpCategory    = 0x1 << 3;
     _heart.yScale = 0.6;
     [_topBarLayer addChild:_heart];
 
-    _ball = [SKSpriteNode spriteNodeWithImageNamed@"blueBall"];
+    _ball = [SKSpriteNode spriteNodeWithImageNamed:@"blueBall"];
     _ball.name = @"Ball";
     _ball.position = _paddleBlue.position;
     
-    _ball.physicsBody = [SKPhysicsBody bodyWithCirleOfRadius:6.0];
-    _ball.physicsBody.velocity = CGVectorMake(1.0*BALL_INITIAL_SPEED,0.0*BALL_INITIAL_SPEED);
+    _ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:6.0];
+    _ball.physicsBody.velocity = CGVectorMake(0.0*BALL_INITIAL_SPEED,1.0*BALL_INITIAL_SPEED);
     _ball.physicsBody.restitution = 1.0;
     _ball.physicsBody.linearDamping = 0.0;
     _ball.physicsBody.friction = 0.0;
