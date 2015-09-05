@@ -86,7 +86,7 @@
         for (int rowIndex = 0; rowIndex <= 3; rowIndex++) {
             int blockCode = [baColumn[rowIndex]integerValue];
             SKSpriteNode *blockSprite = [self blocksSwitch:blockCode];
-            blockSprite.position = CGPointMake(blockSprite.size.width * (rowIndex+1), self.size.height-_topBarLayer.size.height-blockSprite.size.height * (columnIndex+1));
+            blockSprite.position = CGPointMake(blockSprite.size.width * (rowIndex+1) + (rowIndex * blockSprite.size.width/2), self.size.height-_topBarLayer.size.height-blockSprite.size.height * (columnIndex+1));
             [self addChild:blockSprite];
         }
     }
