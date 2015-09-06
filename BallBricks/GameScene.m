@@ -108,13 +108,23 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
 
 }
 
--(NSArray* resultingLives)restoreAllLives {
-    fullArray = [[NSArray alloc]initWithObjects:@1,@,1,@1];
+-(NSArray *)restoreAllLives {
+    NSArray *fullArray = @[@1,@1,@1];
     return fullArray;
 }
 
--(NSArray* resultingLives)removeOneLive:(NSArray*)lives {
-    
+-(NSArray *)removeOneLive:(NSArray*)lives {
+    NSArray *resultArray;
+    if (lives) {
+        NSMutableArray *liveiSChanging = [lives copy];
+        int livesCount = [lives count]+1;
+        [liveiSChanging removeObjectAtIndex:livesCount];
+        [liveiSChanging addObject:@0];
+        resultArray = [resultArray initWithArray:liveiSChanging];
+    } else {
+        NSLog(@"Terrible trouble with array, that you are putting in here");
+    }
+    return resultArray;
 }
 
 -(SKSpriteNode *)blocksSwitch:(int)blockNumber {
