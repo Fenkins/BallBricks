@@ -61,6 +61,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     _paddleBlue.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(_paddleBlue.size.width,_paddleBlue.size.height)];
     _paddleBlue.physicsBody.categoryBitMask = kCCPaddleCategory;
     _paddleBlue.physicsBody.linearDamping = 0.0;
+    _paddleBlue.physicsBody.collisionBitMask = 0;
     _paddleBlue.position = CGPointMake(self.size.width/2, self.size.height/10 + _paddleBlue.size.height/2);
     [self addChild:_paddleBlue];
     
@@ -83,7 +84,8 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
 
     _ball = [SKSpriteNode spriteNodeWithImageNamed:@"blueBall"];
     _ball.name = @"Ball";
-    _ball.position = _paddleBlue.position;
+    //_ball.position = _paddleBlue.position;
+    _ball.position = CGPointMake(_paddleBlue.position.x, _paddleBlue.position.y+_ball.size.height);
     
     _ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:6.0];
     _ball.physicsBody.velocity = CGVectorMake(0.0*BALL_INITIAL_SPEED,1.0*BALL_INITIAL_SPEED);
@@ -155,6 +157,9 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
             int blockCode = [baColumn[rowIndex]integerValue];
             SKSpriteNode *blockSprite = [self blocksSwitch:blockCode];
             blockSprite.position = CGPointMake(blockSprite.size.width * (rowIndex+1) + (rowIndex * blockSprite.size.width/2), self.size.height-_topBarLayer.size.height-blockSprite.size.height * (columnIndex+1));
+            blockSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(blockSprite.size.width, blockSprite.size.height)];
+            blockSprite.physicsBody.categoryBitMask = kCCBrickBlockCategory;
+            blockSprite.physicsBody.restitution = 1.0;
             [self addChild:blockSprite];
         }
     }
