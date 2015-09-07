@@ -62,6 +62,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     _paddleBlue.physicsBody.categoryBitMask = kCCPaddleCategory;
     _paddleBlue.physicsBody.linearDamping = 0.0;
     _paddleBlue.physicsBody.collisionBitMask = 0;
+    _paddleBlue.physicsBody.contactTestBitMask = kCCBallCategory;
     _paddleBlue.position = CGPointMake(self.size.width/2, self.size.height/10 + _paddleBlue.size.height/2);
     [self addChild:_paddleBlue];
     
@@ -95,7 +96,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
 
     _ball.physicsBody.categoryBitMask = kCCBallCategory;
     _ball.physicsBody.collisionBitMask = kCCEdgeCategory | kCCBrickBlockCategory | kCCPaddleCategory;
-    _ball.physicsBody.contactTestBitMask = kCCBrickBlockCategory | kCCPowerUpCategory;
+    _ball.physicsBody.contactTestBitMask = kCCBrickBlockCategory | kCCPowerUpCategory | kCCPaddleCategory;
     [self addChild:_ball];
     
 }
@@ -160,6 +161,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
             blockSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(blockSprite.size.width, blockSprite.size.height)];
             blockSprite.physicsBody.categoryBitMask = kCCBrickBlockCategory;
             blockSprite.physicsBody.restitution = 1.0;
+            blockSprite.physicsBody.collisionBitMask = 0;
             [self addChild:blockSprite];
         }
     }
@@ -188,6 +190,35 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     
     return resultArray;
 }
+
+
+
+
+-(void)didBeginContact:(SKPhysicsContact *)contact {
+    SKPhysicsBody *firstBody;
+    SKPhysicsBody *secondBody;
+    
+    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask) {
+        firstBody = contact.bodyA;
+        secondBody = contact.bodyB;
+    } else {
+        firstBody = contact.bodyB;
+        secondBody = contact.bodyA;
+    }
+    
+    if (firstBody.categoryBitMask == kCCPaddleCategory && secondBody.categoryBitMask == kCCBallCategory) {
+        NSLog(@"asd");
+
+        [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
+            if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/2, _paddleBlue.size.height), node.position)) {
+                NSLog(@"asd");
+            }
+        }];
+    }
+    
+}
+
+
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     for (UITouch *touch in touches) {
         // Moving paddle according to the touch moving
