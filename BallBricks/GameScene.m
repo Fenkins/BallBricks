@@ -20,9 +20,9 @@
 static const CGFloat BALL_INITIAL_SPEED     = 400.0f;
 
 static const uint32_t kCCBallCategory       = 0x1 << 0;
-static const uint32_t kCCEdgeCategory       = 0x1 << 1;
-static const uint32_t kCCBrickBlockCategory = 0x1 << 2;
-static const uint32_t kCCPowerUpCategory    = 0x1 << 3;
+static const uint32_t kCCPowerUpCategory    = 0x1 << 1;
+static const uint32_t kCCEdgeCategory       = 0x1 << 2;
+static const uint32_t kCCBrickBlockCategory = 0x1 << 3;
 static const uint32_t kCCPaddleCategory     = 0x1 << 4;
 
 -(void)didMoveToView:(SKView *)view {
@@ -62,7 +62,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     _paddleBlue.physicsBody.dynamic = NO;
     _paddleBlue.physicsBody.categoryBitMask = kCCPaddleCategory;
     _paddleBlue.physicsBody.linearDamping = 0.0;
-    _paddleBlue.physicsBody.collisionBitMask = 0;
+    _paddleBlue.physicsBody.collisionBitMask = kCCBallCategory;
     _paddleBlue.physicsBody.contactTestBitMask = kCCBallCategory;
     _paddleBlue.position = CGPointMake(self.size.width/2, self.size.height/10 + _paddleBlue.size.height/2);
     [self addChild:_paddleBlue];
@@ -199,13 +199,14 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     SKPhysicsBody *firstBody;
     SKPhysicsBody *secondBody;
     
-    if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask) {
+    if (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask) {
         firstBody = contact.bodyA;
         secondBody = contact.bodyB;
     } else {
         firstBody = contact.bodyB;
         secondBody = contact.bodyA;
     }
+
     
     if (firstBody.categoryBitMask == kCCPaddleCategory && secondBody.categoryBitMask == kCCBallCategory) {
         NSLog(@"asd");
