@@ -59,6 +59,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     
     _paddleBlue = [SKSpriteNode spriteNodeWithImageNamed:@"paddleBlue"];
     _paddleBlue.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(_paddleBlue.size.width,_paddleBlue.size.height)];
+    _paddleBlue.physicsBody.dynamic = NO;
     _paddleBlue.physicsBody.categoryBitMask = kCCPaddleCategory;
     _paddleBlue.physicsBody.linearDamping = 0.0;
     _paddleBlue.physicsBody.collisionBitMask = 0;
@@ -89,13 +90,14 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     _ball.position = CGPointMake(_paddleBlue.position.x, _paddleBlue.position.y+_ball.size.height);
     
     _ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:6.0];
+    _ball.physicsBody.dynamic = YES;
     _ball.physicsBody.velocity = CGVectorMake(0.0*BALL_INITIAL_SPEED,1.0*BALL_INITIAL_SPEED);
     _ball.physicsBody.restitution = 1.0;
     _ball.physicsBody.linearDamping = 0.0;
     _ball.physicsBody.friction = 0.0;
 
     _ball.physicsBody.categoryBitMask = kCCBallCategory;
-    _ball.physicsBody.collisionBitMask = kCCEdgeCategory | kCCBrickBlockCategory | kCCPaddleCategory;
+    _ball.physicsBody.collisionBitMask = kCCEdgeCategory | kCCPaddleCategory | kCCBrickBlockCategory;
     _ball.physicsBody.contactTestBitMask = kCCBrickBlockCategory | kCCPowerUpCategory | kCCPaddleCategory;
     [self addChild:_ball];
     
@@ -193,7 +195,6 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
 
 
 
-
 -(void)didBeginContact:(SKPhysicsContact *)contact {
     SKPhysicsBody *firstBody;
     SKPhysicsBody *secondBody;
@@ -208,7 +209,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     
     if (firstBody.categoryBitMask == kCCPaddleCategory && secondBody.categoryBitMask == kCCBallCategory) {
         NSLog(@"asd");
-
+        
         [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
             if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/2, _paddleBlue.size.height), node.position)) {
                 NSLog(@"asd");
@@ -216,6 +217,9 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
         }];
     }
     
+    if (firstBody.categoryBitMask == kCCBrickBlockCategory && secondBody.categoryBitMask == kCCBallCategory) {
+        NSLog(@"asd");
+    }
 }
 
 
