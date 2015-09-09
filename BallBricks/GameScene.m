@@ -67,6 +67,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     _paddleBlue.position = CGPointMake(self.size.width/2, self.size.height/10 + _paddleBlue.size.height/2);
     [self addChild:_paddleBlue];
     
+    
     _levelLabel = [SKLabelNode labelNodeWithFontNamed:@"Thonburi"];
     _levelLabel.fontSize = 20;
     if (_levelNumber) {
@@ -209,11 +210,18 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
 
     
     if (firstBody.categoryBitMask == kCCPaddleCategory && secondBody.categoryBitMask == kCCBallCategory) {
-        NSLog(@"asd");
         
+        // Adding ball shifting sector to the paddle (right edge)
         [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
-            if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/2, _paddleBlue.size.height), node.position)) {
-                NSLog(@"asd");
+            if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/4+_paddleBlue.size.width/16, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
+                NSLog(@"Hit 1 confirmed");
+                //                _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx+30.0, _ball.physicsBody.velocity.dy);
+            }
+        }];
+        // Adding ball shifting sector to the paddle (right middle)
+        [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
+            if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/16, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
+                NSLog(@"Hit 2 confirmed");
             }
         }];
     }
