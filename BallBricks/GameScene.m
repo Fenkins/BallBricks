@@ -224,6 +224,18 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
                 NSLog(@"Hit 2 confirmed");
             }
         }];
+        // Adding ball shifting sector to the paddle (left middle)
+        [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
+            if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x-_paddleBlue.size.width/16-_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
+                NSLog(@"Hit 3 confirmed");
+            }
+        }];
+        // Adding ball shifting sector to the paddle (left edge)
+        [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
+            if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x-_paddleBlue.size.width/4-_paddleBlue.size.width/16-_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
+                NSLog(@"Hit 4 confirmed");
+            }
+        }];
     }
     
     if (firstBody.categoryBitMask == kCCBrickBlockCategory && secondBody.categoryBitMask == kCCBallCategory) {
