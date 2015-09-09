@@ -87,7 +87,8 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
 
     _ball = [SKSpriteNode spriteNodeWithImageNamed:@"blueBall"];
     _ball.name = @"Ball";
-    //_ball.position = _paddleBlue.position;
+    _ball.xScale = 1.3;
+    _ball.yScale = 1.3;
     _ball.position = CGPointMake(_paddleBlue.position.x, _paddleBlue.position.y+_ball.size.height);
     
     _ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:6.0];
@@ -214,26 +215,25 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
         // Adding ball shifting sector to the paddle (right edge)
         [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
             if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/4+_paddleBlue.size.width/16, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
-                NSLog(@"Hit 1 confirmed");
-                //                _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx+30.0, _ball.physicsBody.velocity.dy);
+                _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx+150.0, _ball.physicsBody.velocity.dy);
             }
         }];
         // Adding ball shifting sector to the paddle (right middle)
         [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
             if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/16, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
-                NSLog(@"Hit 2 confirmed");
+                _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx+100, _ball.physicsBody.velocity.dy);
             }
         }];
         // Adding ball shifting sector to the paddle (left middle)
         [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
             if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x-_paddleBlue.size.width/16-_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
-                NSLog(@"Hit 3 confirmed");
+                _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx-100, _ball.physicsBody.velocity.dy);
             }
         }];
         // Adding ball shifting sector to the paddle (left edge)
         [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
             if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x-_paddleBlue.size.width/4-_paddleBlue.size.width/16-_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
-                NSLog(@"Hit 4 confirmed");
+                _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx-150, _ball.physicsBody.velocity.dy);
             }
         }];
     }
