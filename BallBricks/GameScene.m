@@ -11,7 +11,6 @@
 @implementation GameScene {
     SKSpriteNode *_topBarLayer;
     SKSpriteNode *_paddleBlue;
-    SKSpriteNode *_heart;
     SKSpriteNode *_ball;
     SKLabelNode *_levelLabel;
     NSArray *livesArray;
@@ -80,7 +79,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     [_topBarLayer addChild:_levelLabel];
 
     livesArray = [self restoreAllLives];
-    //[self drawLiveBar:livesArray];
+    [self drawLiveBar:livesArray];
     
     _ball = [SKSpriteNode spriteNodeWithImageNamed:@"blueBall"];
     _ball.name = @"Ball";
@@ -106,12 +105,12 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
 // }
 
 -(void)drawLiveBar:(NSArray*)lives {
-    for (int i = 0; lives.count; i++) {
-        _heart = [SKSpriteNode spriteNodeWithImageNamed:@"fullHeart"];
-        _heart.position = CGPointMake(_topBarLayer.size.width/2-90+_heart.size.width*i, 0);
-        _heart.xScale = 0.6;
-        _heart.yScale = 0.6;
-        [_topBarLayer addChild:_heart];
+    for (int i = 0; i<lives.count; i++) {
+        SKSpriteNode *heart = [SKSpriteNode spriteNodeWithImageNamed:@"fullHeart"];
+        heart.position = CGPointMake(_topBarLayer.size.width/2-90+heart.size.width/2*i, 1);
+        heart.xScale = 0.6;
+        heart.yScale = 0.6;
+        [_topBarLayer addChild:heart];
     }
 }
 
