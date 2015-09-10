@@ -78,13 +78,10 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     }
     _levelLabel.position = CGPointMake(-120, -10);
     [_topBarLayer addChild:_levelLabel];
-    
-    _heart = [SKSpriteNode spriteNodeWithImageNamed:@"fullHeart"];
-    _heart.position = CGPointMake(_topBarLayer.size.width/2-90, 0);
-    _heart.xScale = 0.6;
-    _heart.yScale = 0.6;
-    [_topBarLayer addChild:_heart];
 
+    livesArray = [self restoreAllLives];
+    //[self drawLiveBar:livesArray];
+    
     _ball = [SKSpriteNode spriteNodeWithImageNamed:@"blueBall"];
     _ball.name = @"Ball";
     _ball.xScale = 1.3;
@@ -107,12 +104,15 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
 // -(void)setDefaultNumbersAndBehaviour {
     
 // }
--(void)addGameMenuElements {
-    
-}
 
 -(void)drawLiveBar:(NSArray*)lives {
-
+    for (int i = 0; lives.count; i++) {
+        _heart = [SKSpriteNode spriteNodeWithImageNamed:@"fullHeart"];
+        _heart.position = CGPointMake(_topBarLayer.size.width/2-90+_heart.size.width*i, 0);
+        _heart.xScale = 0.6;
+        _heart.yScale = 0.6;
+        [_topBarLayer addChild:_heart];
+    }
 }
 
 -(NSArray *)restoreAllLives {
