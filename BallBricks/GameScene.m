@@ -104,9 +104,25 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     
 // }
 
+-(void)removeHeartsFromScene:(NSArray *)lives {
+    // Counting nodes to remove from the scene
+    int livesCount = 0;
+    for (int i=0; i<lives.count; i++) {
+        int liveIndex = (int)lives[i];
+        livesCount += liveIndex;
+    }
+    // Enumerating heart nodes and removing them from the scene
+    [self enumerateChildNodesWithName:@"Heart" usingBlock:^(SKNode *node, BOOL *stop) {
+        for (int i=0; i<livesCount; i++) {
+            [node removeFromParent];
+        }
+    }];
+}
+
 -(void)drawLiveBar:(NSArray*)lives {
     for (int i = 0; i<lives.count; i++) {
         SKSpriteNode *heart = [SKSpriteNode spriteNodeWithImageNamed:@"fullHeart"];
+        heart.name = @"Heart";
         heart.position = CGPointMake(_topBarLayer.size.width/2-90+heart.size.width/2*i, 1);
         heart.xScale = 0.6;
         heart.yScale = 0.6;
