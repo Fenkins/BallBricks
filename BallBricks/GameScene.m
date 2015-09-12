@@ -15,6 +15,9 @@
     SKLabelNode *_levelLabel;
     NSArray *livesArray;
     int _levelNumber;
+    BOOL isGameOver;
+    BOOL isLiveLost;
+    int _ballsCount;
 }
 static const CGFloat BALL_INITIAL_SPEED     = 400.0f;
 
@@ -81,6 +84,14 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     livesArray = [self restoreAllLives];
     [self drawLiveBar:livesArray];
     
+    [self bringBallToPlatform];
+    _ballsCount = 1;
+    
+    isLiveLost = NO;
+    isGameOver = NO;
+}
+
+-(void)bringBallToPlatform {
     _ball = [SKSpriteNode spriteNodeWithImageNamed:@"blueBall"];
     _ball.name = @"Ball";
     _ball.xScale = 1.3;
@@ -93,29 +104,19 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     _ball.physicsBody.restitution = 1.0;
     _ball.physicsBody.linearDamping = 0.0;
     _ball.physicsBody.friction = 0.0;
-
+    
     _ball.physicsBody.categoryBitMask = kCCBallCategory;
     _ball.physicsBody.collisionBitMask = kCCEdgeCategory | kCCPaddleCategory | kCCBrickBlockCategory;
     _ball.physicsBody.contactTestBitMask = kCCBrickBlockCategory | kCCPowerUpCategory | kCCPaddleCategory;
     [self addChild:_ball];
-    
+    _ballsCount++;
+    isLiveLost = NO;
 }
-// -(void)setDefaultNumbersAndBehaviour {
-    
-// }
 
--(void)removeHeartsFromScene:(NSArray *)lives {
-    // Counting nodes to remove from the scene
-    int livesCount = 0;
-    for (int i=0; i<lives.count; i++) {
-        int liveIndex = (int)lives[i];
-        livesCount += liveIndex;
-    }
+-(void)removeHeartsFromScene {
     // Enumerating heart nodes and removing them from the scene
-    [self enumerateChildNodesWithName:@"Heart" usingBlock:^(SKNode *node, BOOL *stop) {
-        for (int i=0; i<livesCount; i++) {
+    [_topBarLayer enumerateChildNodesWithName:@"Heart" usingBlock:^(SKNode *node, BOOL *stop) {
             [node removeFromParent];
-        }
     }];
 }
 
@@ -131,18 +132,17 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
 }
 
 -(NSArray *)restoreAllLives {
-    NSArray *fullArray = @[@1,@1,@1];
+    NSArray *fullArray = @[@0,@0,@0];
     return fullArray;
 }
 
 -(NSArray *)removeOneLive:(NSArray*)lives {
     NSArray *resultArray;
     if (lives) {
-        NSMutableArray *liveiSChanging = [lives copy];
-        int livesCount = [lives count]+1;
-        [liveiSChanging removeObjectAtIndex:livesCount];
-        [liveiSChanging addObject:@0];
-        resultArray = [resultArray initWithArray:liveiSChanging];
+        NSMutableArray *livesiSChanging = [[NSMutableArray alloc]initWithArray:lives];
+        int livesCount = [lives count];
+        [livesiSChanging removeObjectAtIndex:livesCount-1];
+        resultArray = [livesiSChanging copy];
     } else {
         NSLog(@"Terrible trouble with array, that you are putting in here");
     }
@@ -280,6 +280,24 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         
+    }
+}
+
+-(void)didSimulatePhysics {
+    // Removing unused nodes
+    [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
+        if (node.position.y + node.frame.size.height < 0) {
+            [node removeFromParent];
+            _ballsCount--;
+        }
+    }];
+    if (_ballsCount == 0) {
+        isLiveLost = YES;
+        livesArray = [self removeOneLive:livesArray];
+        [self removeHeartsFromScene];
+        NSLog(@"%@",livesArray);
+        [self drawLiveBar:livesArray];
+        [self bringBallToPlatform];
     }
 }
 
