@@ -254,7 +254,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     }
     
     if (firstBody.categoryBitMask == kCCBrickBlockCategory && secondBody.categoryBitMask == kCCBallCategory) {
-        NSLog(@"asd");
+//        NSLog(@"asd");
     }
 }
 
@@ -291,7 +291,13 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
             _ballsCount--;
         }
     }];
-    if (_ballsCount == 0) {
+    if (_ballsCount == 0 && livesArray.count == 0) {
+        // We don't have lives left and we lost the ball
+        isGameOver = YES;
+        
+    } else if (_ballsCount == 0) {
+        // If there is no more balls on the screen,
+        // we want to remove one live and bring atleast one ball back
         isLiveLost = YES;
         livesArray = [self removeOneLive:livesArray];
         [self removeHeartsFromScene];
@@ -299,6 +305,8 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
         [self drawLiveBar:livesArray];
         [self bringBallToPlatform];
     }
+    
+    
 }
 
 -(void)update:(CFTimeInterval)currentTime {
