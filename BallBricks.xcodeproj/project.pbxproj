@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA7218211BA5E609004B5531 /* CCMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7218201BA5E609004B5531 /* CCMenu.m */; };
 		AA9CE34D1B95E195008F7ADC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9CE34C1B95E195008F7ADC /* main.m */; };
 		AA9CE3501B95E195008F7ADC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9CE34F1B95E195008F7ADC /* AppDelegate.m */; };
 		AA9CE3531B95E195008F7ADC /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9CE3521B95E195008F7ADC /* GameScene.m */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA72181F1BA5E609004B5531 /* CCMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenu.h; sourceTree = "<group>"; };
+		AA7218201BA5E609004B5531 /* CCMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenu.m; sourceTree = "<group>"; };
 		AA9CE3471B95E195008F7ADC /* BallBricks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallBricks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9CE34B1B95E195008F7ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9CE34C1B95E195008F7ADC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				AA9CE34F1B95E195008F7ADC /* AppDelegate.m */,
 				AA9CE3511B95E195008F7ADC /* GameScene.h */,
 				AA9CE3521B95E195008F7ADC /* GameScene.m */,
+				AA72181F1BA5E609004B5531 /* CCMenu.h */,
+				AA7218201BA5E609004B5531 /* CCMenu.m */,
 				AA9CE3561B95E195008F7ADC /* GameViewController.h */,
 				AA9CE3571B95E195008F7ADC /* GameViewController.m */,
 				AA9CE3591B95E195008F7ADC /* Main.storyboard */,
@@ -294,6 +299,7 @@
 			files = (
 				AA9CE3581B95E195008F7ADC /* GameViewController.m in Sources */,
 				AA9CE3501B95E195008F7ADC /* AppDelegate.m in Sources */,
+				AA7218211BA5E609004B5531 /* CCMenu.m in Sources */,
 				AA9CE3531B95E195008F7ADC /* GameScene.m in Sources */,
 				AA9CE34D1B95E195008F7ADC /* main.m in Sources */,
 			);

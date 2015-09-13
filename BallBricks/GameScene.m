@@ -294,7 +294,8 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     if (_ballsCount == 0 && livesArray.count == 0) {
         // We don't have lives left and we lost the ball
         isGameOver = YES;
-        
+//        CCMenu *menu = [[CCMenu alloc]initWithParameter:3];
+
     } else if (_ballsCount == 0) {
         // If there is no more balls on the screen,
         // we want to remove one live and bring atleast one ball back
