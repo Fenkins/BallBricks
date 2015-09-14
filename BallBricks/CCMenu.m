@@ -23,6 +23,7 @@
         [self addChild:menuTitleFrame];
         
         SKSpriteNode *menuButtonFrame = [SKSpriteNode spriteNodeWithImageNamed:@"buttonEdged"];
+        menuButtonFrame.name = @"Menu_Button";
         menuButtonFrame.position = CGPointMake(0.0, -40.0);
         menuButtonFrame.zPosition = 0.0;
         [self addChild:menuButtonFrame];
@@ -30,7 +31,7 @@
         _menuLabel = [SKLabelNode labelNodeWithFontNamed:@"DIN Alternate"];
         _menuLabel.position = CGPointMake(0.0, -5.0);
         _menuLabel.fontSize = 25;
-        _menuLabel.fontColor = [UIColor purpleColor];
+        _menuLabel.fontColor = [UIColor blueColor];
         // We want to bring labels upfront
         _menuLabel.zPosition = 1.0;
         [menuTitleFrame addChild:_menuLabel];
@@ -38,7 +39,7 @@
         _buttonLabel = [SKLabelNode labelNodeWithFontNamed:@"DIN Alternate"];
         _buttonLabel.position = CGPointMake(0.0, -5.0);
         _buttonLabel.fontSize = 25;
-        _buttonLabel.fontColor = [UIColor purpleColor];
+        _buttonLabel.fontColor = [UIColor blueColor];
         // We want to bring labels upfront
         _buttonLabel.zPosition = 1.0;
         [menuButtonFrame addChild:_buttonLabel];

@@ -294,23 +294,40 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
         
     }
 }
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UITouch* touch in touches) {
+        if (isGameOver) {
+            SKNode *n = [_gameMenu nodeAtPoint:[touch locationInNode:_gameMenu]];
+            if ([n.name isEqualToString:@"Menu_Button"]) {
+                [self restartGame];
+            }
+        }
+    }
+}
+
 -(void)gameOver {
     if (!isGameOver) {
         isGameOver = YES;
         [self removeHeartsFromScene];
-        _gameMenu.menuLabelText = @"Talk";
-        _gameMenu.buttonLabelText = @"To me";
+        _gameMenu.menuLabelText = @"Game Over";
+        _gameMenu.buttonLabelText = @"Retry";
         _menuLayer.hidden = NO;
         NSLog(@"%@",_gameMenu.menuLabelText);
         NSLog(@"%@",_gameMenu.buttonLabelText);
     }
 }
 -(void)restartGame {
-    
+    isGameOver = NO;
+    _menuLayer.hidden = YES;
+    livesArray = [self restoreAllLives];
+    [self drawLiveBar:livesArray];
+    [self bringBallToPlatform];
 }
 -(void)nextLevel {
     
 }
+
 -(void)didSimulatePhysics {
     // Removing unused nodes
     [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
