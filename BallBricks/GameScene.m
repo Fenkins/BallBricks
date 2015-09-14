@@ -10,10 +10,12 @@
 
 @implementation GameScene {
     SKSpriteNode *_topBarLayer;
+    SKSpriteNode *_menuLayer;
     SKSpriteNode *_paddleBlue;
     SKSpriteNode *_ball;
     SKLabelNode *_levelLabel;
     NSArray *livesArray;
+    CCMenu *_gameMenu;
     int _levelNumber;
     BOOL isGameOver;
     BOOL isLiveLost;
@@ -81,12 +83,22 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     _levelLabel.position = CGPointMake(-120, -10);
     [_topBarLayer addChild:_levelLabel];
 
+    // Adding menu layer
+    _menuLayer = [SKSpriteNode spriteNodeWithColor:[UIColor grayColor] size:CGSizeMake(self.size.width, self.size.height)];
+    _menuLayer.position = CGPointMake(self.size.width/2, self.size.height/2);
+    [self addChild:_menuLayer];
+
+    // Initializing game menu
+    _gameMenu = [[CCMenu alloc]init];
+    [_menuLayer addChild:_gameMenu];
+    
     livesArray = [self restoreAllLives];
     [self drawLiveBar:livesArray];
     
     [self bringBallToPlatform];
     _ballsCount = 1;
     
+    _menuLayer.hidden = YES;
     isLiveLost = NO;
     isGameOver = NO;
 }
@@ -282,7 +294,23 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
         
     }
 }
-
+-(void)gameOver {
+    if (!isGameOver) {
+        isGameOver = YES;
+        [self removeHeartsFromScene];
+        _gameMenu.menuLabelText = @"Talk";
+        _gameMenu.buttonLabelText = @"To me";
+        _menuLayer.hidden = NO;
+        NSLog(@"%@",_gameMenu.menuLabelText);
+        NSLog(@"%@",_gameMenu.buttonLabelText);
+    }
+}
+-(void)restartGame {
+    
+}
+-(void)nextLevel {
+    
+}
 -(void)didSimulatePhysics {
     // Removing unused nodes
     [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
@@ -291,10 +319,9 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
             _ballsCount--;
         }
     }];
-    if (_ballsCount == 0 && livesArray.count == 0) {
+    if (_ballsCount == 0 && livesArray.count == 1) {
         // We don't have lives left and we lost the ball
-        isGameOver = YES;
-//        CCMenu *menu = [[CCMenu alloc]initWithParameter:3];
+        [self gameOver];
 
     } else if (_ballsCount == 0) {
         // If there is no more balls on the screen,
