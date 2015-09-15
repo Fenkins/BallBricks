@@ -33,6 +33,7 @@
 		AAA88CC31B9761E8008915BB /* yellowBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CB51B9761E8008915BB /* yellowBrick@2x.png */; };
 		AAEFBA211BA8960500FAE81A /* brickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = AAEFBA1F1BA8960500FAE81A /* brickExplosion.sks */; };
 		AAEFBA241BA8962600FAE81A /* greySquare.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEFBA231BA8962600FAE81A /* greySquare.png */; };
+		AAEFBA271BA8A31E00FAE81A /* CCBrick.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEFBA261BA8A31E00FAE81A /* CCBrick.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		AAA88CB51B9761E8008915BB /* yellowBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowBrick@2x.png"; sourceTree = "<group>"; };
 		AAEFBA1F1BA8960500FAE81A /* brickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = brickExplosion.sks; sourceTree = "<group>"; };
 		AAEFBA231BA8962600FAE81A /* greySquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greySquare.png; sourceTree = "<group>"; };
+		AAEFBA251BA8A31E00FAE81A /* CCBrick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBrick.h; sourceTree = "<group>"; };
+		AAEFBA261BA8A31E00FAE81A /* CCBrick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBrick.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +133,8 @@
 				AA9CE3521B95E195008F7ADC /* GameScene.m */,
 				AA72181F1BA5E609004B5531 /* CCMenu.h */,
 				AA7218201BA5E609004B5531 /* CCMenu.m */,
+				AAEFBA251BA8A31E00FAE81A /* CCBrick.h */,
+				AAEFBA261BA8A31E00FAE81A /* CCBrick.m */,
 				AA9CE3561B95E195008F7ADC /* GameViewController.h */,
 				AA9CE3571B95E195008F7ADC /* GameViewController.m */,
 				AA9CE3591B95E195008F7ADC /* Main.storyboard */,
@@ -308,6 +313,7 @@
 				AA9CE3581B95E195008F7ADC /* GameViewController.m in Sources */,
 				AA9CE3501B95E195008F7ADC /* AppDelegate.m in Sources */,
 				AA7218211BA5E609004B5531 /* CCMenu.m in Sources */,
+				AAEFBA271BA8A31E00FAE81A /* CCBrick.m in Sources */,
 				AA9CE3531B95E195008F7ADC /* GameScene.m in Sources */,
 				AA9CE34D1B95E195008F7ADC /* main.m in Sources */,
 			);
