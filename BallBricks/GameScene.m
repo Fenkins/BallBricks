@@ -270,6 +270,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     
     if (firstBody.categoryBitMask == kCCBrickBlockCategory && secondBody.categoryBitMask == kCCBallCategory) {
         [self enumerateChildNodesWithName:@"blueBrick" usingBlock:^(SKNode *node, BOOL *stop) {
+            [self addExplosion:node.position withName:@"brickExplosion"];
             [node removeFromParent];
         }];
     }
@@ -354,6 +355,16 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     }
     
     
+}
+
+-(void)addExplosion:(CGPoint)position withName:(NSString*) name {
+    NSString *explosionPath = [[NSBundle mainBundle]pathForResource:name ofType:@"sks"];
+    SKEmitterNode *explosion = [NSKeyedUnarchiver unarchiveObjectWithFile:explosionPath];
+    explosion.position = position;
+    [self addChild:explosion];
+    SKAction *removeExplosion = [SKAction sequence:@[[SKAction waitForDuration:1.5],
+                                                     [SKAction removeFromParent]]];
+    [self runAction:removeExplosion];
 }
 
 -(void)update:(CFTimeInterval)currentTime {

@@ -31,6 +31,8 @@
 		AAA88CC11B9761E8008915BB /* purpleBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CB31B9761E8008915BB /* purpleBrick@2x.png */; };
 		AAA88CC21B9761E8008915BB /* redBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CB41B9761E8008915BB /* redBrick@2x.png */; };
 		AAA88CC31B9761E8008915BB /* yellowBrick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA88CB51B9761E8008915BB /* yellowBrick@2x.png */; };
+		AAEFBA211BA8960500FAE81A /* brickExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = AAEFBA1F1BA8960500FAE81A /* brickExplosion.sks */; };
+		AAEFBA241BA8962600FAE81A /* greySquare.png in Resources */ = {isa = PBXBuildFile; fileRef = AAEFBA231BA8962600FAE81A /* greySquare.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		AAA88CB31B9761E8008915BB /* purpleBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purpleBrick@2x.png"; sourceTree = "<group>"; };
 		AAA88CB41B9761E8008915BB /* redBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redBrick@2x.png"; sourceTree = "<group>"; };
 		AAA88CB51B9761E8008915BB /* yellowBrick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowBrick@2x.png"; sourceTree = "<group>"; };
+		AAEFBA1F1BA8960500FAE81A /* brickExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = brickExplosion.sks; sourceTree = "<group>"; };
+		AAEFBA231BA8962600FAE81A /* greySquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greySquare.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 			children = (
 				AAA88CA71B9761E8008915BB /* GameImages */,
 				AA9CE34E1B95E195008F7ADC /* AppDelegate.h */,
+				AAEFBA1F1BA8960500FAE81A /* brickExplosion.sks */,
+				AAEFBA231BA8962600FAE81A /* greySquare.png */,
 				AA9CE34F1B95E195008F7ADC /* AppDelegate.m */,
 				AA9CE3511B95E195008F7ADC /* GameScene.h */,
 				AA9CE3521B95E195008F7ADC /* GameScene.m */,
@@ -268,6 +274,8 @@
 				AAA88CC01B9761E8008915BB /* paddleRed@2x.png in Resources */,
 				AAA88CBF1B9761E8008915BB /* paddleBlue@2x.png in Resources */,
 				AAA88CBC1B9761E8008915BB /* greenBrick@2x.png in Resources */,
+				AAEFBA211BA8960500FAE81A /* brickExplosion.sks in Resources */,
+				AAEFBA241BA8962600FAE81A /* greySquare.png in Resources */,
 				AA9CE35D1B95E195008F7ADC /* Images.xcassets in Resources */,
 				AAA88CB61B9761E8008915BB /* blueBall@2x.png in Resources */,
 				AAA88CB71B9761E8008915BB /* blueBrick@2x.png in Resources */,
