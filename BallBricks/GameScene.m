@@ -23,11 +23,13 @@
 }
 static const CGFloat BALL_INITIAL_SPEED     = 400.0f;
 
-static const uint32_t kCCBallCategory       = 0x1 << 0;
-static const uint32_t kCCPowerUpCategory    = 0x1 << 1;
-static const uint32_t kCCEdgeCategory       = 0x1 << 2;
-static const uint32_t kCCBrickBlockCategory = 0x1 << 3;
-static const uint32_t kCCPaddleCategory     = 0x1 << 4;
+static const uint32_t kCCBallCategory           = 0x1 << 0;
+static const uint32_t kCCPowerUpCategory        = 0x1 << 1;
+static const uint32_t kCCEdgeCategory           = 0x1 << 2;
+static const uint32_t kCCBlueBrickCategory      = 0x1 << 3;
+static const uint32_t kCCGreenBrickCategory     = 0x1 << 4;
+static const uint32_t kCCPurpleBrickCategory    = 0x1 << 5;
+static const uint32_t kCCPaddleCategory         = 0x1 << 6;
 
 -(void)didMoveToView:(SKView *)view {
     self.backgroundColor = [SKColor whiteColor];
@@ -118,8 +120,8 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     _ball.physicsBody.friction = 0.0;
     
     _ball.physicsBody.categoryBitMask = kCCBallCategory;
-    _ball.physicsBody.collisionBitMask = kCCEdgeCategory | kCCPaddleCategory | kCCBrickBlockCategory;
-    _ball.physicsBody.contactTestBitMask = kCCBrickBlockCategory | kCCPowerUpCategory | kCCPaddleCategory;
+    _ball.physicsBody.collisionBitMask = kCCEdgeCategory | kCCPaddleCategory | kCCBlueBrickCategory | kCCGreenBrickCategory;
+    _ball.physicsBody.contactTestBitMask = kCCBlueBrickCategory | kCCGreenBrickCategory | kCCPowerUpCategory | kCCPaddleCategory;
     [self addChild:_ball];
     _ballsCount++;
     isLiveLost = NO;
@@ -194,6 +196,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
             blockSprite.position = CGPointMake(blockSprite.size.width * (rowIndex+1) + (rowIndex * blockSprite.size.width/2), self.size.height-_topBarLayer.size.height-blockSprite.size.height * (columnIndex+1));
             blockSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(blockSprite.size.width, blockSprite.size.height)];
             blockSprite.physicsBody.categoryBitMask = kCCBrickBlockCategory;
+            // you really should add separate blocks class with counter of hits for green block
             blockSprite.physicsBody.restitution = 1.0;
             blockSprite.physicsBody.collisionBitMask = 0;
             [self addChild:blockSprite];
@@ -268,7 +271,7 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
         }];
     }
     
-    if (firstBody.categoryBitMask == kCCBrickBlockCategory && secondBody.categoryBitMask == kCCBallCategory) {
+    if (firstBody.categoryBitMask == kCCBlueBrickCategory && secondBody.categoryBitMask == kCCBallCategory) {
         [self enumerateChildNodesWithName:@"blueBrick" usingBlock:^(SKNode *node, BOOL *stop) {
             [self addExplosion:node.position withName:@"brickExplosion"];
             [node removeFromParent];
