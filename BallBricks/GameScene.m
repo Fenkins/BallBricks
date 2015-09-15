@@ -166,12 +166,15 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     switch (blockNumber) {
         case 1:
             block = [SKSpriteNode spriteNodeWithImageNamed:@"blueBrick"];
+            block.name = @"blueBrick";
             break;
         case 2:
             block = [SKSpriteNode spriteNodeWithImageNamed:@"greenBrick"];
+            block.name = @"greenBrick";
             break;
         case 3:
             block = [SKSpriteNode spriteNodeWithImageNamed:@"purpleBrick"];
+            block.name = @"purpleBrick";
             break;
         default:
             NSLog(@"Error in the blocksSwitch section, you have to push the right number");
@@ -266,7 +269,9 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
     }
     
     if (firstBody.categoryBitMask == kCCBrickBlockCategory && secondBody.categoryBitMask == kCCBallCategory) {
-//        NSLog(@"asd");
+        [self enumerateChildNodesWithName:@"blueBrick" usingBlock:^(SKNode *node, BOOL *stop) {
+            [node removeFromParent];
+        }];
     }
 }
 
@@ -313,8 +318,6 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
         _gameMenu.menuLabelText = @"Game Over";
         _gameMenu.buttonLabelText = @"Retry";
         _menuLayer.hidden = NO;
-        NSLog(@"%@",_gameMenu.menuLabelText);
-        NSLog(@"%@",_gameMenu.buttonLabelText);
     }
 }
 -(void)restartGame {
@@ -346,7 +349,6 @@ static const uint32_t kCCPaddleCategory     = 0x1 << 4;
         isLiveLost = YES;
         livesArray = [self removeOneLive:livesArray];
         [self removeHeartsFromScene];
-        NSLog(@"%@",livesArray);
         [self drawLiveBar:livesArray];
         [self bringBallToPlatform];
     }

@@ -37,6 +37,7 @@
         [menuTitleFrame addChild:_menuLabel];
         
         _buttonLabel = [SKLabelNode labelNodeWithFontNamed:@"DIN Alternate"];
+        _buttonLabel.name = @"Menu_Button";
         _buttonLabel.position = CGPointMake(0.0, -5.0);
         _buttonLabel.fontSize = 25;
         _buttonLabel.fontColor = [UIColor blueColor];
