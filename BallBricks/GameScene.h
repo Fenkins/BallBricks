@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "CCMenu.h"
+#import "CCBrick.h"
 
 @interface GameScene : SKScene <SKPhysicsContactDelegate>
 

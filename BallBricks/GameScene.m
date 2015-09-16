@@ -163,19 +163,19 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
     return resultArray;
 }
 
--(SKSpriteNode *)blocksSwitch:(int)blockNumber {
-    SKSpriteNode *block;
+-(CCBrick *)blocksSwitch:(int)blockNumber {
+    CCBrick *block;
     switch (blockNumber) {
         case 1:
-            block = [SKSpriteNode spriteNodeWithImageNamed:@"blueBrick"];
+            block = [[CCBrick alloc]initWithImageNamed:@"blueBrick"];
             block.name = @"blueBrick";
             break;
         case 2:
-            block = [SKSpriteNode spriteNodeWithImageNamed:@"greenBrick"];
+            block = [[CCBrick alloc] initWithImageNamed:@"greenBrick"];
             block.name = @"greenBrick";
             break;
         case 3:
-            block = [SKSpriteNode spriteNodeWithImageNamed:@"purpleBrick"];
+            block = [[CCBrick alloc] initWithImageNamed:@"purpleBrick"];
             block.name = @"purpleBrick";
             break;
         default:
@@ -192,13 +192,9 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
         NSArray *baColumn = [[NSArray alloc]initWithArray:blocksArray[columnIndex]];
         for (int rowIndex = 0; rowIndex <= 3; rowIndex++) {
             int blockCode = [baColumn[rowIndex]integerValue];
-            SKSpriteNode *blockSprite = [self blocksSwitch:blockCode];
+            
+            CCBrick *blockSprite = [self blocksSwitch:blockCode];
             blockSprite.position = CGPointMake(blockSprite.size.width * (rowIndex+1) + (rowIndex * blockSprite.size.width/2), self.size.height-_topBarLayer.size.height-blockSprite.size.height * (columnIndex+1));
-            blockSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(blockSprite.size.width, blockSprite.size.height)];
-            blockSprite.physicsBody.categoryBitMask = kCCBrickBlockCategory;
-            // you really should add separate blocks class with counter of hits for green block
-            blockSprite.physicsBody.restitution = 1.0;
-            blockSprite.physicsBody.collisionBitMask = 0;
             [self addChild:blockSprite];
         }
     }

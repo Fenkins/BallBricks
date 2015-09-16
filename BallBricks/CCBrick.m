@@ -10,29 +10,35 @@
 
 @implementation CCBrick
 
-static const uint32_t kCCBallCategory           = 0x1 << 0;
-static const uint32_t kCCPowerUpCategory        = 0x1 << 1;
-static const uint32_t kCCEdgeCategory           = 0x1 << 2;
 static const uint32_t kCCBlueBrickCategory      = 0x1 << 3;
 static const uint32_t kCCGreenBrickCategory     = 0x1 << 4;
 static const uint32_t kCCPurpleBrickCategory    = 0x1 << 5;
-static const uint32_t kCCPaddleCategory         = 0x1 << 6;
 
 -(id)initWithImageNamed:(NSString *)name {
     self = [super init];
     if (self) {
         if ([name isEqualToString:@"blueBrick"]) {
             self.brickColor = @"blue";
+            self = [CCBrick spriteNodeWithImageNamed:@"blueBrick"];
             self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.size.width, self.size.height)];
             self.physicsBody.categoryBitMask = kCCBlueBrickCategory;
+            self.physicsBody.restitution = 1.0;
+            self.physicsBody.collisionBitMask = 0;
+
         } else if ([name isEqualToString:@"greenBrick"]) {
             self.brickColor = @"green";
+            self = [CCBrick spriteNodeWithImageNamed:@"greenBrick"];
             self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.size.width, self.size.height)];
             self.physicsBody.categoryBitMask = kCCGreenBrickCategory;
+            self.physicsBody.restitution = 1.0;
+            self.physicsBody.collisionBitMask = 0;
         } else if ([name isEqualToString:@"purpleBrick"]) {
             self.brickColor = @"purple";
+            self = [CCBrick spriteNodeWithImageNamed:@"purpleBrick"];
             self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(self.size.width, self.size.height)];
             self.physicsBody.categoryBitMask = kCCPurpleBrickCategory;
+            self.physicsBody.restitution = 1.0;
+            self.physicsBody.collisionBitMask = 0;
         }
     }
     return self;
