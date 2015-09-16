@@ -120,8 +120,8 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
     _ball.physicsBody.friction = 0.0;
     
     _ball.physicsBody.categoryBitMask = kCCBallCategory;
-    _ball.physicsBody.collisionBitMask = kCCEdgeCategory | kCCPaddleCategory | kCCBlueBrickCategory | kCCGreenBrickCategory;
-    _ball.physicsBody.contactTestBitMask = kCCBlueBrickCategory | kCCGreenBrickCategory | kCCPowerUpCategory | kCCPaddleCategory;
+    _ball.physicsBody.collisionBitMask = kCCEdgeCategory | kCCPaddleCategory | kCCBlueBrickCategory | kCCGreenBrickCategory | kCCPurpleBrickCategory;
+    _ball.physicsBody.contactTestBitMask = kCCBlueBrickCategory | kCCGreenBrickCategory | kCCPurpleBrickCategory | kCCPowerUpCategory | kCCPaddleCategory;
     [self addChild:_ball];
     _ballsCount++;
     isLiveLost = NO;
@@ -227,51 +227,67 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
 
 
 -(void)didBeginContact:(SKPhysicsContact *)contact {
-    SKPhysicsBody *firstBody;
-    SKPhysicsBody *secondBody;
-    
-    if (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask) {
-        firstBody = contact.bodyA;
-        secondBody = contact.bodyB;
-    } else {
-        firstBody = contact.bodyB;
-        secondBody = contact.bodyA;
-    }
-
-    
-    if (firstBody.categoryBitMask == kCCPaddleCategory && secondBody.categoryBitMask == kCCBallCategory) {
+    if ([contact.bodyA.node isKindOfClass:[CCBrick class]] || [contact.bodyB.node isKindOfClass:[CCBrick class]]) {
+        NSLog(@"Call");
+        CCBrick *firstBody;
+        SKPhysicsBody *secondBody;
         
-        // Adding ball shifting sector to the paddle (right edge)
-        [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
-            if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/4+_paddleBlue.size.width/16, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
-                _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx+150.0, _ball.physicsBody.velocity.dy);
-            }
-        }];
-        // Adding ball shifting sector to the paddle (right middle)
-        [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
-            if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/16, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
-                _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx+100, _ball.physicsBody.velocity.dy);
-            }
-        }];
-        // Adding ball shifting sector to the paddle (left middle)
-        [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
-            if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x-_paddleBlue.size.width/16-_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
-                _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx-100, _ball.physicsBody.velocity.dy);
-            }
-        }];
-        // Adding ball shifting sector to the paddle (left edge)
-        [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
-            if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x-_paddleBlue.size.width/4-_paddleBlue.size.width/16-_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
-                _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx-150, _ball.physicsBody.velocity.dy);
-            }
-        }];
-    }
-    
-    if (firstBody.categoryBitMask == kCCBlueBrickCategory && secondBody.categoryBitMask == kCCBallCategory) {
-        [self enumerateChildNodesWithName:@"blueBrick" usingBlock:^(SKNode *node, BOOL *stop) {
-            [self addExplosion:node.position withName:@"brickExplosion"];
-            [node removeFromParent];
-        }];
+        if (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask) {
+            firstBody = (CCBrick*)contact.bodyA.node;
+            secondBody = contact.bodyB;
+        } else {
+            firstBody = (CCBrick*)contact.bodyB.node;
+            secondBody = contact.bodyA;
+        }
+        
+        // Detecting contacts with bricks here
+        if (firstBody.physicsBody.categoryBitMask == kCCBlueBrickCategory && secondBody.categoryBitMask == kCCBallCategory) {
+            NSLog(@"Magic");
+            [self addExplosion:firstBody.position withName:@"brickExplosion"];
+            firstBody.name = nil;
+            [firstBody removeFromParent];
+        }
+        
+    } else {
+        SKPhysicsBody *firstBody;
+        SKPhysicsBody *secondBody;
+        
+        if (contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask) {
+            firstBody = contact.bodyA;
+            secondBody = contact.bodyB;
+        } else {
+            firstBody = contact.bodyB;
+            secondBody = contact.bodyA;
+        }
+
+        // Detecting all other contacts here
+        if (firstBody.categoryBitMask == kCCPaddleCategory && secondBody.categoryBitMask == kCCBallCategory) {
+            
+            // Adding ball shifting sector to the paddle (right edge)
+            [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
+                if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/4+_paddleBlue.size.width/16, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
+                    _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx+150.0, _ball.physicsBody.velocity.dy);
+                }
+            }];
+            // Adding ball shifting sector to the paddle (right middle)
+            [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
+                if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/16, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
+                    _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx+100, _ball.physicsBody.velocity.dy);
+                }
+            }];
+            // Adding ball shifting sector to the paddle (left middle)
+            [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
+                if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x-_paddleBlue.size.width/16-_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
+                    _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx-100, _ball.physicsBody.velocity.dy);
+                }
+            }];
+            // Adding ball shifting sector to the paddle (left edge)
+            [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
+                if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x-_paddleBlue.size.width/4-_paddleBlue.size.width/16-_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
+                    _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx-150, _ball.physicsBody.velocity.dy);
+                }
+            }];
+        }
     }
 }
 
@@ -369,5 +385,6 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
 }
+
 
 @end
