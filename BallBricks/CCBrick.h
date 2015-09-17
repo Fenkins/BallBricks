@@ -11,5 +11,5 @@
 
 @interface CCBrick : SKSpriteNode
 @property (nonatomic) NSString* brickColor;
-@property (nonatomic) int hitCounter;
+@property (atomic) int hitCounter;
 @end

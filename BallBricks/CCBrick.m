@@ -24,6 +24,7 @@ static const uint32_t kCCPurpleBrickCategory    = 0x1 << 5;
             self.physicsBody.categoryBitMask = kCCBlueBrickCategory;
             self.physicsBody.restitution = 1.0;
             self.physicsBody.collisionBitMask = 0;
+            self.hitCounter = 0;
 
         } else if ([name isEqualToString:@"greenBrick"]) {
             self.brickColor = @"green";
@@ -32,6 +33,7 @@ static const uint32_t kCCPurpleBrickCategory    = 0x1 << 5;
             self.physicsBody.categoryBitMask = kCCGreenBrickCategory;
             self.physicsBody.restitution = 1.0;
             self.physicsBody.collisionBitMask = 0;
+            self.hitCounter = 0;
         } else if ([name isEqualToString:@"purpleBrick"]) {
             self.brickColor = @"purple";
             self = [CCBrick spriteNodeWithImageNamed:@"purpleBrick"];
@@ -39,6 +41,7 @@ static const uint32_t kCCPurpleBrickCategory    = 0x1 << 5;
             self.physicsBody.categoryBitMask = kCCPurpleBrickCategory;
             self.physicsBody.restitution = 1.0;
             self.physicsBody.collisionBitMask = 0;
+            self.hitCounter = 0;
         }
     }
     return self;

@@ -228,7 +228,7 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
 
 -(void)didBeginContact:(SKPhysicsContact *)contact {
     if ([contact.bodyA.node isKindOfClass:[CCBrick class]] || [contact.bodyB.node isKindOfClass:[CCBrick class]]) {
-        NSLog(@"Call");
+
         CCBrick *firstBody;
         SKPhysicsBody *secondBody;
         
@@ -240,12 +240,21 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
             secondBody = contact.bodyA;
         }
         
-        // Detecting contacts with bricks here
+        // Detecting contacts with BLUE bricks here
         if (firstBody.physicsBody.categoryBitMask == kCCBlueBrickCategory && secondBody.categoryBitMask == kCCBallCategory) {
-            NSLog(@"Magic");
             [self addExplosion:firstBody.position withName:@"brickExplosion"];
             firstBody.name = nil;
             [firstBody removeFromParent];
+        }
+        // Detecting contacts with GREEN bricks here
+        if (firstBody.physicsBody.categoryBitMask == kCCGreenBrickCategory && secondBody.categoryBitMask == kCCBallCategory) {
+            if (firstBody.hitCounter >= 1) {
+                [self addExplosion:firstBody.position withName:@"brickExplosion"];
+                firstBody.name = nil;
+                [firstBody removeFromParent];
+            } else if (firstBody.hitCounter >= 0) {
+                firstBody.hitCounter++;
+            }
         }
         
     } else {

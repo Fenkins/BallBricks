@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA4DFC4F1BA9F0C9006BB9E2 /* BallBounce.caf in Resources */ = {isa = PBXBuildFile; fileRef = AA4DFC4A1BA9F0C9006BB9E2 /* BallBounce.caf */; };
+		AA4DFC501BA9F0C9006BB9E2 /* BrickSmash.caf in Resources */ = {isa = PBXBuildFile; fileRef = AA4DFC4B1BA9F0C9006BB9E2 /* BrickSmash.caf */; };
+		AA4DFC511BA9F0C9006BB9E2 /* LevelUp.caf in Resources */ = {isa = PBXBuildFile; fileRef = AA4DFC4C1BA9F0C9006BB9E2 /* LevelUp.caf */; };
+		AA4DFC521BA9F0C9006BB9E2 /* LoseLife.caf in Resources */ = {isa = PBXBuildFile; fileRef = AA4DFC4D1BA9F0C9006BB9E2 /* LoseLife.caf */; };
+		AA4DFC531BA9F0C9006BB9E2 /* PaddleBounce.caf in Resources */ = {isa = PBXBuildFile; fileRef = AA4DFC4E1BA9F0C9006BB9E2 /* PaddleBounce.caf */; };
 		AA7218211BA5E609004B5531 /* CCMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7218201BA5E609004B5531 /* CCMenu.m */; };
 		AA9CE34D1B95E195008F7ADC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9CE34C1B95E195008F7ADC /* main.m */; };
 		AA9CE3501B95E195008F7ADC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9CE34F1B95E195008F7ADC /* AppDelegate.m */; };
@@ -47,6 +52,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA4DFC4A1BA9F0C9006BB9E2 /* BallBounce.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BallBounce.caf; sourceTree = "<group>"; };
+		AA4DFC4B1BA9F0C9006BB9E2 /* BrickSmash.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BrickSmash.caf; sourceTree = "<group>"; };
+		AA4DFC4C1BA9F0C9006BB9E2 /* LevelUp.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LevelUp.caf; sourceTree = "<group>"; };
+		AA4DFC4D1BA9F0C9006BB9E2 /* LoseLife.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LoseLife.caf; sourceTree = "<group>"; };
+		AA4DFC4E1BA9F0C9006BB9E2 /* PaddleBounce.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PaddleBounce.caf; sourceTree = "<group>"; };
 		AA72181F1BA5E609004B5531 /* CCMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMenu.h; sourceTree = "<group>"; };
 		AA7218201BA5E609004B5531 /* CCMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMenu.m; sourceTree = "<group>"; };
 		AA9CE3471B95E195008F7ADC /* BallBricks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallBricks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +113,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA4DFC491BA9F0C9006BB9E2 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				AA4DFC4A1BA9F0C9006BB9E2 /* BallBounce.caf */,
+				AA4DFC4B1BA9F0C9006BB9E2 /* BrickSmash.caf */,
+				AA4DFC4C1BA9F0C9006BB9E2 /* LevelUp.caf */,
+				AA4DFC4D1BA9F0C9006BB9E2 /* LoseLife.caf */,
+				AA4DFC4E1BA9F0C9006BB9E2 /* PaddleBounce.caf */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		AA9CE33E1B95E195008F7ADC = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +146,7 @@
 		AA9CE3491B95E195008F7ADC /* BallBricks */ = {
 			isa = PBXGroup;
 			children = (
+				AA4DFC491BA9F0C9006BB9E2 /* Sounds */,
 				AAA88CA71B9761E8008915BB /* GameImages */,
 				AA9CE34E1B95E195008F7ADC /* AppDelegate.h */,
 				AAEFBA1F1BA8960500FAE81A /* brickExplosion.sks */,
@@ -280,16 +303,21 @@
 				AAA88CBF1B9761E8008915BB /* paddleBlue@2x.png in Resources */,
 				AAA88CBC1B9761E8008915BB /* greenBrick@2x.png in Resources */,
 				AAEFBA211BA8960500FAE81A /* brickExplosion.sks in Resources */,
+				AA4DFC521BA9F0C9006BB9E2 /* LoseLife.caf in Resources */,
 				AAEFBA241BA8962600FAE81A /* greySquare.png in Resources */,
 				AA9CE35D1B95E195008F7ADC /* Images.xcassets in Resources */,
 				AAA88CB61B9761E8008915BB /* blueBall@2x.png in Resources */,
 				AAA88CB71B9761E8008915BB /* blueBrick@2x.png in Resources */,
+				AA4DFC501BA9F0C9006BB9E2 /* BrickSmash.caf in Resources */,
 				AAA88CB91B9761E8008915BB /* buttonEdged@2x.png in Resources */,
+				AA4DFC4F1BA9F0C9006BB9E2 /* BallBounce.caf in Resources */,
 				AA9CE3761B95E1CB008F7ADC /* Entitlements.plist in Resources */,
 				AAA88CC31B9761E8008915BB /* yellowBrick@2x.png in Resources */,
+				AA4DFC511BA9F0C9006BB9E2 /* LevelUp.caf in Resources */,
 				AAA88CB81B9761E8008915BB /* button@2x.png in Resources */,
 				AAA88CBB1B9761E8008915BB /* fullHeart@2x.png in Resources */,
 				AAA88CC11B9761E8008915BB /* purpleBrick@2x.png in Resources */,
+				AA4DFC531BA9F0C9006BB9E2 /* PaddleBounce.caf in Resources */,
 				AAA88CBD1B9761E8008915BB /* greyBall@2x.png in Resources */,
 				AA9CE35B1B95E195008F7ADC /* Main.storyboard in Resources */,
 				AAA88CBE1B9761E8008915BB /* greyBrick@2x.png in Resources */,
