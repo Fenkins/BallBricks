@@ -20,6 +20,11 @@
     BOOL isGameOver;
     BOOL isLiveLost;
     int _ballsCount;
+    SKAction *_ballBounceSound;
+    SKAction *_brickSmashSound;
+    SKAction *_levelUpSound;
+    SKAction *_loseLifeSound;
+    SKAction *_paddleBounce;
 }
 static const CGFloat BALL_INITIAL_SPEED     = 400.0f;
 
@@ -103,6 +108,15 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
     _menuLayer.hidden = YES;
     isLiveLost = NO;
     isGameOver = NO;
+    
+    (isLiveLost) ? [self runAction:_ballBounceSound] : [self runAction:_ballBounceSound];
+    
+    // Sounds
+    _ballBounceSound = [SKAction playSoundFileNamed:@"BallBounce.caf" waitForCompletion:NO];
+    _brickSmashSound = [SKAction playSoundFileNamed:@"BrickSmash.caf" waitForCompletion:NO];
+    _levelUpSound = [SKAction playSoundFileNamed:@"LevelUp.caf" waitForCompletion:NO];
+    _loseLifeSound = [SKAction playSoundFileNamed:@"LoseLife.caf" waitForCompletion:NO];
+    _paddleBounce = [SKAction playSoundFileNamed:@"PaddleBounce.caf" waitForCompletion:NO];
 }
 
 -(void)bringBallToPlatform {
@@ -245,6 +259,7 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
             [self addExplosion:firstBody.position withName:@"brickExplosion"];
             firstBody.name = nil;
             [firstBody removeFromParent];
+            [self runAction:_brickSmashSound];
         }
         // Detecting contacts with GREEN bricks here
         if (firstBody.physicsBody.categoryBitMask == kCCGreenBrickCategory && secondBody.categoryBitMask == kCCBallCategory) {
@@ -252,8 +267,10 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
                 [self addExplosion:firstBody.position withName:@"brickExplosion"];
                 firstBody.name = nil;
                 [firstBody removeFromParent];
+                [self runAction:_brickSmashSound];
             } else if (firstBody.hitCounter >= 0) {
                 firstBody.hitCounter++;
+                [self runAction:_brickSmashSound];
             }
         }
         
@@ -271,6 +288,8 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
 
         // Detecting all other contacts here
         if (firstBody.categoryBitMask == kCCPaddleCategory && secondBody.categoryBitMask == kCCBallCategory) {
+            
+            [self runAction:_ballBounceSound];
             
             // Adding ball shifting sector to the paddle (right edge)
             [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
