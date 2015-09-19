@@ -273,6 +273,10 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
                 [self runAction:_brickSmashSound];
             }
         }
+        // Detecting contacts with PURPLE bricks here
+        if (firstBody.physicsBody.categoryBitMask == kCCPurpleBrickCategory && secondBody.categoryBitMask == kCCBallCategory) {
+            [self runAction:_ballBounceSound];
+        }
         
     } else {
         SKPhysicsBody *firstBody;
@@ -370,6 +374,7 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
     livesArray = [self restoreAllLives];
     [self drawLiveBar:livesArray];
     [self bringBallToPlatform];
+    [self drawBlocksBasedOnArray];
 }
 -(void)nextLevel {
     
