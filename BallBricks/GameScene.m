@@ -19,7 +19,9 @@
     int _levelNumber;
     BOOL isGameOver;
     BOOL isLiveLost;
+    BOOL isLevelComplete;
     int _ballsCount;
+//    int _destroyableBricksCount;
     SKAction *_ballBounceSound;
     SKAction *_brickSmashSound;
     SKAction *_levelUpSound;
@@ -108,6 +110,7 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
     _menuLayer.hidden = YES;
     isLiveLost = NO;
     isGameOver = NO;
+    isLevelComplete = NO;
     
     (isLiveLost) ? [self runAction:_ballBounceSound] : [self runAction:_ballBounceSound];
     
@@ -260,6 +263,9 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
             firstBody.name = nil;
             [firstBody removeFromParent];
             [self runAction:_brickSmashSound];
+            if (![self childNodeWithName:@"blueBrick"] && ![self childNodeWithName:@"greenBrick"]) {
+                [self nextLevelPopup];
+            }
         }
         // Detecting contacts with GREEN bricks here
         if (firstBody.physicsBody.categoryBitMask == kCCGreenBrickCategory && secondBody.categoryBitMask == kCCBallCategory) {
@@ -268,6 +274,9 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
                 firstBody.name = nil;
                 [firstBody removeFromParent];
                 [self runAction:_brickSmashSound];
+                if (![self childNodeWithName:@"greenBrick"] && ![self childNodeWithName:@"blueBrick"]) {
+                    [self nextLevelPopup];
+                }
             } else if (firstBody.hitCounter >= 0) {
                 firstBody.hitCounter++;
                 [self runAction:_brickSmashSound];
@@ -356,6 +365,12 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
                 [self restartGame];
             }
         }
+        if (isLevelComplete) {
+            SKNode *n = [_gameMenu nodeAtPoint:[touch locationInNode:_gameMenu]];
+            if ([n.name isEqualToString:@"Menu_Button"]) {
+                [self nextLevelProceed];
+            }
+        }
     }
 }
 
@@ -376,8 +391,26 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
     [self bringBallToPlatform];
     [self drawBlocksBasedOnArray];
 }
--(void)nextLevel {
-    
+-(void)nextLevelPopup {
+    [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
+        [node removeFromParent];
+    }];
+    _ballsCount = 0;
+    _gameMenu.menuLabelText = [NSString stringWithFormat:@"Level %d complete!",_levelNumber];
+    _gameMenu.buttonLabelText = @"Next Level";
+    _menuLayer.hidden = NO;
+    isLevelComplete = YES;
+    NSLog(@"You have %d balls",_ballsCount);
+}
+
+-(void)nextLevelProceed {
+    _menuLayer.hidden = YES;
+    _levelNumber++;
+    [self drawBlocksBasedOnArray];
+    [self bringBallToPlatform];
+    isLevelComplete = NO;
+    _levelLabel.text = [NSString stringWithFormat:@"Level %d",_levelNumber];
+    NSLog(@"You have %d balls",_ballsCount);
 }
 
 -(void)didSimulatePhysics {
@@ -388,11 +421,11 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
             _ballsCount--;
         }
     }];
-    if (_ballsCount == 0 && livesArray.count == 1) {
+    if (_ballsCount == 0 && livesArray.count == 1 && !isLevelComplete) {
         // We don't have lives left and we lost the ball
         [self gameOver];
 
-    } else if (_ballsCount == 0) {
+    } else if (_ballsCount == 0 && !isLevelComplete) {
         // If there is no more balls on the screen,
         // we want to remove one live and bring atleast one ball back
         isLiveLost = YES;
