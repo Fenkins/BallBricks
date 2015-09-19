@@ -202,29 +202,15 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
     return block;
 }
 
--(void)drawBlocksBasedOnArray {
-    NSArray *blocksArray = [[NSArray alloc]initWithArray:[self generateBlocksArrayBasedOnLevel:_levelNumber]];
 
-    for (int columnIndex = 0; columnIndex < blocksArray.count; columnIndex++) {
-        NSArray *baColumn = [[NSArray alloc]initWithArray:blocksArray[columnIndex]];
-        for (int rowIndex = 0; rowIndex <= 3; rowIndex++) {
-            int blockCode = [baColumn[rowIndex]integerValue];
-            
-            CCBrick *blockSprite = [self blocksSwitch:blockCode];
-            blockSprite.position = CGPointMake(blockSprite.size.width * (rowIndex+1) + (rowIndex * blockSprite.size.width/2), self.size.height-_topBarLayer.size.height-blockSprite.size.height * (columnIndex+1));
-            [self addChild:blockSprite];
-        }
-    }
-    
-}
 -(NSArray *)generateBlocksArrayBasedOnLevel:(int)levelNumber {
     NSMutableArray *resultArray = [[NSMutableArray alloc]init];
     NSInteger columnsCount;
     if (levelNumber < 4) {
         columnsCount = 1 + arc4random_uniform(levelNumber);
-    } else if (levelNumber > 4 && levelNumber < 10) {
+    } else if (levelNumber >= 4 && levelNumber < 10) {
         columnsCount = 3 + arc4random_uniform(levelNumber);
-    } else if (levelNumber > 10) {
+    } else if (levelNumber >= 10) {
         columnsCount = 10;
     }
     
@@ -241,6 +227,39 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
     return resultArray;
 }
 
+
+-(void)drawBlocksBasedOnArray {
+    [self blocksCleaner];
+    NSArray *blocksArray = [[NSArray alloc]initWithArray:[self generateBlocksArrayBasedOnLevel:_levelNumber]];
+    NSLog(@"ARR %@",blocksArray);
+
+    for (int columnIndex = 0; columnIndex < blocksArray.count; columnIndex++) {
+        NSArray *baColumn = [[NSArray alloc]initWithArray:blocksArray[columnIndex]];
+        for (int rowIndex = 0; rowIndex <= 3; rowIndex++) {
+            int blockCode = [baColumn[rowIndex]integerValue];
+            
+            CCBrick *blockSprite = [self blocksSwitch:blockCode];
+            blockSprite.position = CGPointMake(blockSprite.size.width * (rowIndex+1) + (rowIndex * blockSprite.size.width/2), self.size.height-_topBarLayer.size.height+blockSprite.size.height-(blockSprite.size.height * (columnIndex+1))*2);
+            [self addChild:blockSprite];
+        }
+    }
+    
+}
+
+-(void)blocksCleaner {
+    // Erasing green blocks from view(if any)
+    [self enumerateChildNodesWithName:@"greenBrick" usingBlock:^(SKNode *node, BOOL *stop) {
+        [node removeFromParent];
+    }];
+    // Erasing blue blocks from view(if any)
+    [self enumerateChildNodesWithName:@"blueBrick" usingBlock:^(SKNode *node, BOOL *stop) {
+        [node removeFromParent];
+    }];
+    // Erasing purple blocks from view(if any)
+    [self enumerateChildNodesWithName:@"purpleBrick" usingBlock:^(SKNode *node, BOOL *stop) {
+        [node removeFromParent];
+    }];
+}
 
 
 -(void)didBeginContact:(SKPhysicsContact *)contact {
