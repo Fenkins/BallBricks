@@ -231,7 +231,7 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
 -(void)drawBlocksBasedOnArray {
     [self blocksCleaner];
     NSArray *blocksArray = [[NSArray alloc]initWithArray:[self generateBlocksArrayBasedOnLevel:_levelNumber]];
-    NSLog(@"ARR %@",blocksArray);
+//    NSLog(@"ARR %@",blocksArray);
 
     for (int columnIndex = 0; columnIndex < blocksArray.count; columnIndex++) {
         NSArray *baColumn = [[NSArray alloc]initWithArray:blocksArray[columnIndex]];
@@ -240,6 +240,7 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
             
             CCBrick *blockSprite = [self blocksSwitch:blockCode];
             blockSprite.position = CGPointMake(blockSprite.size.width * (rowIndex+1) + (rowIndex * blockSprite.size.width/2), self.size.height-_topBarLayer.size.height+blockSprite.size.height-(blockSprite.size.height * (columnIndex+1))*2);
+            blockSprite.zPosition = -0.5;
             [self addChild:blockSprite];
         }
     }
@@ -327,27 +328,48 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
             [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
                 if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/4+_paddleBlue.size.width/16, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
                     _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx+150.0, _ball.physicsBody.velocity.dy);
+                    [self normalize];
                 }
             }];
             // Adding ball shifting sector to the paddle (right middle)
             [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
                 if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x+_paddleBlue.size.width/16, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
                     _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx+100, _ball.physicsBody.velocity.dy);
+                    [self normalize];
                 }
             }];
             // Adding ball shifting sector to the paddle (left middle)
             [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
                 if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x-_paddleBlue.size.width/16-_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
                     _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx-100, _ball.physicsBody.velocity.dy);
+                    [self normalize];
                 }
             }];
             // Adding ball shifting sector to the paddle (left edge)
             [self enumerateChildNodesWithName:@"Ball" usingBlock:^(SKNode *node, BOOL *stop) {
                 if (CGRectContainsPoint(CGRectMake(_paddleBlue.position.x-_paddleBlue.size.width/4-_paddleBlue.size.width/16-_paddleBlue.size.width/4, _paddleBlue.position.y, _paddleBlue.size.width/4, _paddleBlue.size.height), node.position)) {
                     _ball.physicsBody.velocity = CGVectorMake(_ball.physicsBody.velocity.dx-150, _ball.physicsBody.velocity.dy);
+                    [self normalize];
                 }
             }];
         }
+    }
+}
+
+
+-(void)normalize {
+    // This code is probably is a full trigonometrical crap, since I am not really good at it
+    // Just trying to stabilize the ball velocity so it won't bounce around like it is on some freakin cocaine or something
+    CGFloat resultVector = sqrt(_ball.physicsBody.velocity.dx*_ball.physicsBody.velocity.dx + _ball.physicsBody.velocity.dy*_ball.physicsBody.velocity.dy);
+    NSLog(@"Your result vec %f",resultVector);
+    if (resultVector != BALL_INITIAL_SPEED) {
+        NSLog(@"x and y %f,%f",_ball.physicsBody.velocity.dx, _ball.physicsBody.velocity.dy);
+        CGFloat vecSum = sqrt(_ball.physicsBody.velocity.dx*_ball.physicsBody.velocity.dx) + sqrt(_ball.physicsBody.velocity.dy*_ball.physicsBody.velocity.dy);
+        CGFloat xMult = _ball.physicsBody.velocity.dx / vecSum;
+        NSLog(@"xMult %f",xMult);
+        CGFloat yMult = _ball.physicsBody.velocity.dy / vecSum;
+        NSLog(@"yMult %f",yMult);
+        _ball.physicsBody.velocity = CGVectorMake(xMult*BALL_INITIAL_SPEED*1.25, yMult*BALL_INITIAL_SPEED*1.25);
     }
 }
 
