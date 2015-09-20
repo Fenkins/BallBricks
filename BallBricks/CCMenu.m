@@ -49,12 +49,12 @@
 }
 
 -(void)setMenuLabelText:(NSString *)menuLabelText {
-    _menuLabelText = menuLabelText;
+//    _menuLabelText = menuLabelText;
     _menuLabel.text = menuLabelText;
 }
 
 -(void)setButtonLabelText:(NSString *)buttonLabelText {
-    _buttonLabelText = buttonLabelText;
+//    _buttonLabelText = buttonLabelText;
     _buttonLabel.text = buttonLabelText;
 }
 

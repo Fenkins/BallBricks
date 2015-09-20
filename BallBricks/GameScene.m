@@ -99,6 +99,8 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
 
     // Initializing game menu
     _gameMenu = [[CCMenu alloc]init];
+    _gameMenu.menuLabelText = @"";
+    _gameMenu.buttonLabelText = @"";
     [_menuLayer addChild:_gameMenu];
     
     livesArray = [self restoreAllLives];
@@ -361,14 +363,10 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
     // This code is probably is a full trigonometrical crap, since I am not really good at it
     // Just trying to stabilize the ball velocity so it won't bounce around like it is on some freakin cocaine or something
     CGFloat resultVector = sqrt(_ball.physicsBody.velocity.dx*_ball.physicsBody.velocity.dx + _ball.physicsBody.velocity.dy*_ball.physicsBody.velocity.dy);
-    NSLog(@"Your result vec %f",resultVector);
     if (resultVector != BALL_INITIAL_SPEED) {
-        NSLog(@"x and y %f,%f",_ball.physicsBody.velocity.dx, _ball.physicsBody.velocity.dy);
         CGFloat vecSum = sqrt(_ball.physicsBody.velocity.dx*_ball.physicsBody.velocity.dx) + sqrt(_ball.physicsBody.velocity.dy*_ball.physicsBody.velocity.dy);
         CGFloat xMult = _ball.physicsBody.velocity.dx / vecSum;
-        NSLog(@"xMult %f",xMult);
         CGFloat yMult = _ball.physicsBody.velocity.dy / vecSum;
-        NSLog(@"yMult %f",yMult);
         _ball.physicsBody.velocity = CGVectorMake(xMult*BALL_INITIAL_SPEED*1.25, yMult*BALL_INITIAL_SPEED*1.25);
     }
 }
@@ -425,6 +423,8 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
     }
 }
 -(void)restartGame {
+    _levelNumber = 1;
+    _levelLabel.text = [NSString stringWithFormat:@"Level %d",_levelNumber];
     isGameOver = NO;
     _menuLayer.hidden = YES;
     livesArray = [self restoreAllLives];
@@ -441,7 +441,7 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
     _gameMenu.buttonLabelText = @"Next Level";
     _menuLayer.hidden = NO;
     isLevelComplete = YES;
-    NSLog(@"You have %d balls",_ballsCount);
+//    NSLog(@"You have %d balls",_ballsCount);
 }
 
 -(void)nextLevelProceed {
@@ -451,7 +451,7 @@ static const uint32_t kCCPaddleCategory         = 0x1 << 6;
     [self bringBallToPlatform];
     isLevelComplete = NO;
     _levelLabel.text = [NSString stringWithFormat:@"Level %d",_levelNumber];
-    NSLog(@"You have %d balls",_ballsCount);
+//    NSLog(@"You have %d balls",_ballsCount);
 }
 
 -(void)didSimulatePhysics {
